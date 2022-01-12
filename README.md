@@ -90,7 +90,7 @@ As **keywords** contém espaço simples entre si, e são reservadas da *library*
 
 Os **argumentos** possuem tabulação mínima de 2 espaços entre si. As **variáveis** tabmvém possuem espaço duplo entre si.
 
-Segquências de *keywords* formam um caso ou cenário de teste.
+Sequências de *keywords* formam um caso ou cenário de teste.
 
 Os scripts que implementam essas palavras-chave são estritos em baixo nível (linguagem de programação). No caso do Robot, esses scripts já estão pré-programadados e disponibilizadps através de *libraries*. Sendo assim, o automatizador não precisa se preocupar em implementar esses scripts.
 
@@ -99,26 +99,19 @@ Uma *keyword* pode ser implementada com *sub-keywords*.
 Apesar de já existirem diversas *libraries* disponíveis, nada impede o automatizador de criar suas próprias *keywords* com scripts programados em Python oy Java.
 
 
+## Vantagens
+- Fácil leitura e entendimento da ação que está ocorrendo
+- Fácil manutenção
+- Se bem escrita e estruturada, a sequência de *keywords* pode se tornar uma documentação
+- Bom para testadores não técnicos
+
+
+## Pesquisando, escolhendo e entendendo as Libraries
+
+
 ## Instalação
-- Criar uma pasta para o projeto, chamada **automacao-codeceptjs-web**
-- Acessar a pasta, informar o comando `npm init`
-- Vai questionar algumas coisas
-- Vai criar um `package.json`
-- Abrir o projeto no VSCode
-- No prompt: `npm install codeceptjs webdriverio --save-dev`
-- Depois da instalação: `npx codeceptjs init`
+- 
 
-`npm` - *node package manager*, gerenciador de pacotes do Node. Diferentemente do `npm`, o `npx` executa alguma coisa já instalada. O `I` é o nosso ator, é ele quem representa as ações do usuário dentro do script.
-
-Vai questionar algumas coisas, selecionar:
-- pasta de testes (manter)
-- helper:  Webdriver
-- logs: (manter)
-- localization: English (no localization)
-- base url: http://automationpractice.com/index.php
-- browser: (manter)
-- feature: login
-- filename: (manter)
 
 ## 
 
