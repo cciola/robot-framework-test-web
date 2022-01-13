@@ -3,7 +3,7 @@ Projeto do curso Automação de Testes com Robot Framework, da Mayara "May" Fern
 
 -----------------------------------------
 ### O que este script faz?
-Este script efetua alguns testes na [loja virtual Automation Practice](http://automationpractice.com/index.php).
+Este script efetua alguns testes na [link](http://link).
 
 -----------------------------------------
 ### Instalação e uso da arquitetura
@@ -18,27 +18,18 @@ Este script efetua alguns testes na [loja virtual Automation Practice](http://au
 
 - Abra um terminal que aceite comandos git (exemplo: Powershell, git bash, cmder, etc.)
 - Baixe este repositório ou faça um `git clone` (HTTPS/SSH)
-- Abra o diretório do projeto via terminal e execute o comando abaixo para instalar as dependências:
-```
-npm install --save-dev
-```
+
 - Para verificar se possui as versões instaladas, digite no terminal:
 ```
-npm -v && node -v
+xxx
 ```
 
 ### Testes
-- O script executa 4 cenários de teste: são três testes positivos, e um teste que força um erro (fail).
-
-- Três testes referentes a *Login* esecutam com BDD, e estão no arquivo *features > basic.feature*.
-
-- O teste "Account" está sendo executado diretamente do Scenario do arquivo *create_user_test.js*.
-
-- No arquivo *features > basic.feature*, comente o cenário "Test with proposital error" com `#` caso queira que todos os testes passem (este cenário força para ocorrer um erro).
+- 
 
 - Para executar todos os testes, digite no terminal:
 ```
-npx codeceptjs run
+xxx
 ```
 
 -----------------------------------------
@@ -68,7 +59,7 @@ npx codeceptjs run
 
 -----------------------------------------
 ### Introdução
-O Robot Framework é um framework open source para automação de testes, desenvolvido em Python.
+O Robot Framework é um framework open source para automação de testes, desenvolvido em Python. Possibilita automatizar testes web, desktop e mobile.
 
 É estruturado para desenvolvimento dirigido a testes de aceitação (ATDD), que é uma abordagem para times ágeis de desenvolvimento, onde os requisitos são definidos e refinados pelo time (QA, Devs, PO), logo no início do projeto. Estes requisitos tornam-se executáveis posteriormente, com o ATDD. Mas o Robot pode ser utilizado mesmo que o time não seja ágil.
 
@@ -106,15 +97,101 @@ Apesar de já existirem diversas *libraries* disponíveis, nada impede o automat
 - Bom para testadores não técnicos
 
 
-## Pesquisando, escolhendo e entendendo as Libraries
+### Libraries Standard
+As *Libraries* do tipo **standard** são nativas do Robot, então você não precisa instalá-las, apenas instanciá-las nos testes.
 
+Ao clicar no link da library, temos a sessão **Shortcuts**, que contém todas as *keywords* disponíveis daquela *library*. Ao clicar em um *shortcut*, direcionará para a explicação da *keyword*, e também listará os argumentos possíveis que você pode utilizar com ela.
+
+---
 
 ## Instalação
-- 
+
+- Instale as ferramentas:
+
+  - **Python 3**: Acesse o [site do Python](https://www.python.org/downloads/), faça o download, marque a opção "Add Python 3.7 to PATH", e confira nas suas Variáveis de Ambiente (de usuário) se os diretórios do Python 3 foram criados no PATH. Caso não sejam criados, acesse a pasta do usuário do Windows, pasta Python, copie e cole manualmente o caminho desta pasta na Variável de Ambiente.
+
+  - Para verificar se o Python foi instalado com sucesso, digite no terminal:
+    ```javascript
+    python --version
+    ```
+
+  - **Robot Framework**: para instalar, digite no terminal:
+    ```javascript
+    pip install robotframework
+    ```
+
+  - Com o comando `pip freeze`, é possível listar todos os pacotes instalados. Caso seja necessário atualizar a versão dos pacotes do Robot, digite o comando `pip install --upgrade robotframework==3.2.2` (informe a versão desejada).
+
+  - **Selenium**: vamos instalar a library externa *SeleniumLibrary* para os testes web, com o comando `pip install --upgrade robotframework-seleniumlibrary`.
+
+  - **Requests**: vamos instalar a library externa *Requests* para testes de API, com o comando `pip install -U robotframework-requests`.
+
+  - **Drivers**: Vamos baixar o driver do Firefox, o [Geckodriver](https://github.com/mozilla/geckodriver/releases), e também o driver do Chrome, o [Chromedriver](https://sites.google.com/chromium.org/driver/downloads). Salve os drivers dentro da pasta *scripts* no diretório do Python, pois esta pasta já está mapeada nas variáveis de ambiente.
+
+---
+
+### IDE
+Abaixo temos o passo a passo da instalação de duas IDEs: o ATOM e o VSCode.
+
+**ATOM**
+
+- Faça o download no [site do ATOM](https://atom.io/) (siga a instalação normal).
+
+- No site do Robot, em *Tools*, temos outras IDEs compatíveis, caso deseje usar uma diferente do ATOM (Pycharm, VS Code, etc.).
+
+- No Atom, acesse o menu *Packages > Settings View > Install Packages/Themes*, pesquise por "robotframework", instale os pacotes:
+
+  - language-robot-framework
+  - autocomplete-robot-framework
+  - hyperclick-robot-framework
+
+**Extra: Configurações do ATOM**
+
+- **Habilitando o terminal por dentro do ATOM**
+
+**IMPORTANTE**: Habilite o terminal por dentro do ATOM é opcional, pois fica tudo numa única tela, mas podem ser utilizados outros terminais externamente, como o CMD, Power Shell, Bash, etc.
+
+1 - Instale o pacote **platformio-ide-terminal** em *ATOM > Packages > Settings View > Install Packages/Themes*
+
+2 - Após instalar esse plugin, modifique o shell que ele irá usar, colocando o CMD do Windows: acesse *Settings* no plugin e cole no campo *Shell Override* o diretório do seu shell preferido, exemplo *C:\Windows\system32\cmd.exe*.
+
+3 - **Reinicie o ATOM**
+
+4 - Para acessar o terminal dentro do ATOM, basta clicar no + que fica no rodapé.
+
+- **Plug-in para Robot Framework no ATOM**
+
+Houve uma atualização recente no plugin do Language-Robot Framework que deixou ele com a cor das sintaxes diferentes, fazendo com que os casos de teste e seus passos ficassem todos da mesma cor. É possível corrigir isso ajustando o plugin manualmente para ficar como antes e destacar as palavras do Gherkin também:
+
+1 - Baixe o arquivo anexo à esta aula chamado robottxt.cson ou pegue ele no meu GitHub [https://github.com/mayribeirofernandes/testesrobotframework/tree/master/language-robot-framework/grammars] .
+
+2 - **Feche o ATOM**.
+
+3 - Substitua o arquivo robottxt.cson no diretório de instalação do ATOM, no meu caso foi: C:\Users\may.fernandes\.atom\packages\language-robot-framework\grammars. Verifique o diretório correspondente a sua instalação do ATOM.
+
+4 - Abra o ATOM novamente.
+
+---
+
+**VS Code**
+
+O VSCode é um excelente editor de código e atualmente conta com o melhor plugin de Robot Framework.
+
+1 - Faça o [download do VSCode](https://code.visualstudio.com/download);
+
+2 - Instale normalmente;
+
+3 - Acesse na opção "Extensões" e procure pela extensão chamada *Robot Framework Language Server*, da Robocorp;
+
+4 - Instale normalmente, não é necessário fazer nenhuma configuração adicional;
+
+5 - Reinicie o VSCode para garantir a instalação.
+
+**ATENÇÃO:** não é necessário instalar mais nenhum outro plugin para Robot, pois pode haver conflitos e algumas funções podem não funcionar corretamente.
 
 
-## 
+## Atualizando Libraries e Webdrivers
 
 ## Erros conhecidos
 
-- 
+-
