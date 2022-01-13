@@ -102,8 +102,6 @@ As *Libraries* do tipo **standard** são nativas do Robot, então você não pre
 
 Ao clicar no link da library, temos a sessão **Shortcuts**, que contém todas as *keywords* disponíveis daquela *library*. Ao clicar em um *shortcut*, direcionará para a explicação da *keyword*, e também listará os argumentos possíveis que você pode utilizar com ela.
 
----
-
 ## Instalação
 
 Instale as ferramentas:
@@ -167,8 +165,6 @@ Houve uma atualização recente no plugin do Language-Robot Framework que deixou
 
 - Abra o ATOM novamente.
 
----
-
 ## VS Code
 
 O VSCode é um excelente editor de código e atualmente conta com o **melhor plugin de Robot Framework**.
@@ -185,9 +181,8 @@ O VSCode é um excelente editor de código e atualmente conta com o **melhor plu
 
 **ATENÇÃO:** não é necessário instalar mais nenhum outro plugin para Robot, pois pode haver conflitos e algumas funções podem não funcionar corretamente.
 
----
 
-### Atualizando Libraries e Webdrivers
+## Atualizando Libraries e Webdrivers
 
 
 ---
