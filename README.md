@@ -106,34 +106,32 @@ Ao clicar no link da library, temos a sessão **Shortcuts**, que contém todas a
 
 ## Instalação
 
-- Instale as ferramentas:
+Instale as ferramentas:
 
-  - **Python 3**: Acesse o [site do Python](https://www.python.org/downloads/), faça o download, marque a opção "Add Python 3.7 to PATH", e confira nas suas Variáveis de Ambiente (de usuário) se os diretórios do Python 3 foram criados no PATH. Caso não sejam criados, acesse a pasta do usuário do Windows, pasta Python, copie e cole manualmente o caminho desta pasta na Variável de Ambiente.
+- **Python 3**: Acesse o [site do Python](https://www.python.org/downloads/), faça o download, marque a opção "Add Python 3.7 to PATH", e confira nas suas Variáveis de Ambiente (de usuário) se os diretórios do Python 3 foram criados no PATH. Caso não sejam criados, acesse a pasta do usuário do Windows, pasta Python, copie e cole manualmente o caminho desta pasta na Variável de Ambiente.
 
-  - Para verificar se o Python foi instalado com sucesso, digite no terminal:
-    ```javascript
-    python --version
-    ```
+- Para verificar se o Python foi instalado com sucesso, digite no terminal:
+```javascript
+python --version
+```
 
-  - **Robot Framework**: para instalar, digite no terminal:
-    ```javascript
-    pip install robotframework
-    ```
+- **Robot Framework**: para instalar, digite no terminal:
+```javascript
+pip install robotframework
+```
 
-  - Com o comando `pip freeze`, é possível listar todos os pacotes instalados. Caso seja necessário atualizar a versão dos pacotes do Robot, digite o comando `pip install --upgrade robotframework==3.2.2` (informe a versão desejada).
+- Com o comando `pip freeze`, é possível listar todos os pacotes instalados. Caso seja necessário atualizar a versão dos pacotes do Robot, digite o comando `pip install --upgrade robotframework==3.2.2` (informe a versão desejada).
 
-  - **Selenium**: vamos instalar a library externa *SeleniumLibrary* para os testes web, com o comando `pip install --upgrade robotframework-seleniumlibrary`.
+- **Selenium**: vamos instalar a library externa *SeleniumLibrary* para os testes web, com o comando `pip install --upgrade robotframework-seleniumlibrary`.
 
-  - **Requests**: vamos instalar a library externa *Requests* para testes de API, com o comando `pip install -U robotframework-requests`.
+- **Requests**: vamos instalar a library externa *Requests* para testes de API, com o comando `pip install -U robotframework-requests`.
 
-  - **Drivers**: Vamos baixar o driver do Firefox, o [Geckodriver](https://github.com/mozilla/geckodriver/releases), e também o driver do Chrome, o [Chromedriver](https://sites.google.com/chromium.org/driver/downloads). Salve os drivers dentro da pasta *scripts* no diretório do Python, pois esta pasta já está mapeada nas variáveis de ambiente.
+- **Drivers**: Vamos baixar o driver do Firefox, o [Geckodriver](https://github.com/mozilla/geckodriver/releases), e também o driver do Chrome, o [Chromedriver](https://sites.google.com/chromium.org/driver/downloads). Salve os drivers dentro da pasta *scripts* no diretório do Python, pois esta pasta já está mapeada nas variáveis de ambiente.
 
----
-
-### IDE
+## IDE
 Abaixo temos o passo a passo da instalação de duas IDEs: o ATOM e o VSCode.
 
-**ATOM**
+### ATOM
 
 - Faça o download no [site do ATOM](https://atom.io/) (siga a instalação normal).
 
@@ -147,7 +145,7 @@ Abaixo temos o passo a passo da instalação de duas IDEs: o ATOM e o VSCode.
 
 **Habilitando o terminal por dentro do ATOM**
 
-**IMPORTANTE**: Habilite o terminal por dentro do ATOM é opcional, pois fica tudo numa única tela, mas podem ser utilizados outros terminais externamente, como o CMD, Power Shell, Bash, etc.
+**Importante**: Habilite o terminal por dentro do ATOM é opcional, pois fica tudo numa única tela, mas podem ser utilizados outros terminais externamente, como o CMD, Power Shell, Bash, etc.
 
 - Instale o pacote **platformio-ide-terminal** em *ATOM > Packages > Settings View > Install Packages/Themes*
 
@@ -171,7 +169,7 @@ Houve uma atualização recente no plugin do Language-Robot Framework que deixou
 
 ---
 
-**VS Code**
+## VS Code
 
 O VSCode é um excelente editor de código e atualmente conta com o **melhor plugin de Robot Framework**.
 
