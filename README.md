@@ -111,9 +111,7 @@ Ao clicar no link da library, temos a sessão **Shortcuts**, que contém todas a
   - **Python 3**: Acesse o [site do Python](https://www.python.org/downloads/), faça o download, marque a opção "Add Python 3.7 to PATH", e confira nas suas Variáveis de Ambiente (de usuário) se os diretórios do Python 3 foram criados no PATH. Caso não sejam criados, acesse a pasta do usuário do Windows, pasta Python, copie e cole manualmente o caminho desta pasta na Variável de Ambiente.
 
   - Para verificar se o Python foi instalado com sucesso, digite no terminal:
-    ```javascript
-    python --version
-    ```
+    `python --version`
 
   - **Robot Framework**: para instalar, digite no terminal:
     ```javascript
