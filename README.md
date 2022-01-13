@@ -126,46 +126,8 @@ pip install robotframework
 
 - **Drivers**: Vamos baixar o driver do Firefox, o [Geckodriver](https://github.com/mozilla/geckodriver/releases), e também o driver do Chrome, o [Chromedriver](https://sites.google.com/chromium.org/driver/downloads). Salve os drivers dentro da pasta *scripts* no diretório do Python, pois esta pasta já está mapeada nas variáveis de ambiente.
 
-## IDE
-Abaixo temos o passo a passo da instalação de duas IDEs: o ATOM e o VSCode.
-
-### ATOM
-
-- Faça o download no [site do ATOM](https://atom.io/) (siga a instalação normal).
-
-- No site do Robot, em *Tools*, temos outras IDEs compatíveis, caso deseje usar uma diferente do ATOM (Pycharm, VS Code, etc.).
-
-- No Atom, acesse o menu *Packages > Settings View > Install Packages/Themes*, pesquise por "robotframework", instale os pacotes:
-
-  - language-robot-framework
-  - autocomplete-robot-framework
-  - hyperclick-robot-framework
-
-**Habilitando o terminal por dentro do ATOM**
-
-**Importante**: Habilite o terminal por dentro do ATOM é opcional, pois fica tudo numa única tela, mas podem ser utilizados outros terminais externamente, como o CMD, Power Shell, Bash, etc.
-
-- Instale o pacote **platformio-ide-terminal** em *ATOM > Packages > Settings View > Install Packages/Themes*
-
-- Após instalar esse plugin, modifique o shell que ele irá usar, colocando o CMD do Windows: acesse *Settings* no plugin e cole no campo *Shell Override* o diretório do seu shell preferido, exemplo *C:\Windows\system32\cmd.exe*.
-
-- Reinicie o ATOM
-
-- Para acessar o terminal dentro do ATOM, basta clicar no + que fica no rodapé.
-
-**Plug-in para Robot Framework no ATOM**
-
-Houve uma atualização recente no plugin do Language-Robot Framework que deixou ele com a cor das sintaxes diferentes, fazendo com que os casos de teste e seus passos ficassem todos da mesma cor. É possível corrigir isso ajustando o plugin manualmente para ficar como antes e destacar as palavras do Gherkin também:
-
-- Obtenha o arquivo *robottxt.cson* [neste repositório](https://github.com/mayribeirofernandes/testesrobotframework/tree/master/language-robot-framework/grammars).
-
-- Feche o ATOM
-
-- Substitua o arquivo *robottxt.cson* no diretório de instalação do ATOM, exemplo: *C:\Users\carol.ciola\.atom\packages\language-robot-framework\grammars*
-
-- Abra o ATOM novamente.
-
-## VS Code
+## IDE - VSCode
+**Observação**: abaixo temos o passo a passo da instalação do VS Code.Caso deseje utilizar o ATOM, verificar o passo a passo no curso.
 
 O VSCode é um excelente editor de código e atualmente conta com o **melhor plugin de Robot Framework**.
 
@@ -173,14 +135,13 @@ O VSCode é um excelente editor de código e atualmente conta com o **melhor plu
 
 - Instale normalmente;
 
-- Acesse na opção "Extensões" e procure pela extensão chamada *Robot Framework Language Server*, da Robocorp;
+- Acesse a opção "Extensões" e procure pela extensão chamada *Robot Framework Language Server*, da Robocorp;
 
 - Instale normalmente, não é necessário fazer nenhuma configuração adicional;
 
 - Reinicie o VSCode para garantir a instalação.
 
-**ATENÇÃO:** não é necessário instalar mais nenhum outro plugin para Robot, pois pode haver conflitos e algumas funções podem não funcionar corretamente.
-
+**Atenção:** não é necessário instalar mais nenhum outro plugin para o Robot, pois isso pode resultar em conflitos, e algumas funções podem não funcionar corretamente.
 
 ## Atualizando Libraries e Webdrivers
 
