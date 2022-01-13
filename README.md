@@ -111,8 +111,9 @@ Ao clicar no link da library, temos a sessão **Shortcuts**, que contém todas a
   - **Python 3**: Acesse o [site do Python](https://www.python.org/downloads/), faça o download, marque a opção "Add Python 3.7 to PATH", e confira nas suas Variáveis de Ambiente (de usuário) se os diretórios do Python 3 foram criados no PATH. Caso não sejam criados, acesse a pasta do usuário do Windows, pasta Python, copie e cole manualmente o caminho desta pasta na Variável de Ambiente.
 
   - Para verificar se o Python foi instalado com sucesso, digite no terminal:
-
-    `python --version`
+    ```javascript
+    python --version
+    ```
 
   - **Robot Framework**: para instalar, digite no terminal:
     ```javascript
@@ -144,52 +145,54 @@ Abaixo temos o passo a passo da instalação de duas IDEs: o ATOM e o VSCode.
   - autocomplete-robot-framework
   - hyperclick-robot-framework
 
-**Extra: Configurações do ATOM**
-
-- **Habilitando o terminal por dentro do ATOM**
+**Habilitando o terminal por dentro do ATOM**
 
 **IMPORTANTE**: Habilite o terminal por dentro do ATOM é opcional, pois fica tudo numa única tela, mas podem ser utilizados outros terminais externamente, como o CMD, Power Shell, Bash, etc.
 
-1 - Instale o pacote **platformio-ide-terminal** em *ATOM > Packages > Settings View > Install Packages/Themes*
+- Instale o pacote **platformio-ide-terminal** em *ATOM > Packages > Settings View > Install Packages/Themes*
 
-2 - Após instalar esse plugin, modifique o shell que ele irá usar, colocando o CMD do Windows: acesse *Settings* no plugin e cole no campo *Shell Override* o diretório do seu shell preferido, exemplo *C:\Windows\system32\cmd.exe*.
+- Após instalar esse plugin, modifique o shell que ele irá usar, colocando o CMD do Windows: acesse *Settings* no plugin e cole no campo *Shell Override* o diretório do seu shell preferido, exemplo *C:\Windows\system32\cmd.exe*.
 
-3 - **Reinicie o ATOM**
+- Reinicie o ATOM
 
-4 - Para acessar o terminal dentro do ATOM, basta clicar no + que fica no rodapé.
+- Para acessar o terminal dentro do ATOM, basta clicar no + que fica no rodapé.
 
-- **Plug-in para Robot Framework no ATOM**
+**Plug-in para Robot Framework no ATOM**
 
 Houve uma atualização recente no plugin do Language-Robot Framework que deixou ele com a cor das sintaxes diferentes, fazendo com que os casos de teste e seus passos ficassem todos da mesma cor. É possível corrigir isso ajustando o plugin manualmente para ficar como antes e destacar as palavras do Gherkin também:
 
-1 - Baixe o arquivo anexo à esta aula chamado robottxt.cson ou pegue ele no meu GitHub [https://github.com/mayribeirofernandes/testesrobotframework/tree/master/language-robot-framework/grammars] .
+- Obtenha o arquivo *robottxt.cson* [neste repositório](https://github.com/mayribeirofernandes/testesrobotframework/tree/master/language-robot-framework/grammars).
 
-2 - **Feche o ATOM**.
+- Feche o ATOM
 
-3 - Substitua o arquivo robottxt.cson no diretório de instalação do ATOM, no meu caso foi: C:\Users\may.fernandes\.atom\packages\language-robot-framework\grammars. Verifique o diretório correspondente a sua instalação do ATOM.
+- Substitua o arquivo *robottxt.cson* no diretório de instalação do ATOM, exemplo: *C:\Users\carol.ciola\.atom\packages\language-robot-framework\grammars*
 
-4 - Abra o ATOM novamente.
+- Abra o ATOM novamente.
 
 ---
 
 **VS Code**
 
-O VSCode é um excelente editor de código e atualmente conta com o melhor plugin de Robot Framework.
+O VSCode é um excelente editor de código e atualmente conta com o **melhor plugin de Robot Framework**.
 
-1 - Faça o [download do VSCode](https://code.visualstudio.com/download);
+- Faça o [download do VSCode](https://code.visualstudio.com/download);
 
-2 - Instale normalmente;
+- Instale normalmente;
 
-3 - Acesse na opção "Extensões" e procure pela extensão chamada *Robot Framework Language Server*, da Robocorp;
+- Acesse na opção "Extensões" e procure pela extensão chamada *Robot Framework Language Server*, da Robocorp;
 
-4 - Instale normalmente, não é necessário fazer nenhuma configuração adicional;
+- Instale normalmente, não é necessário fazer nenhuma configuração adicional;
 
-5 - Reinicie o VSCode para garantir a instalação.
+- Reinicie o VSCode para garantir a instalação.
 
 **ATENÇÃO:** não é necessário instalar mais nenhum outro plugin para Robot, pois pode haver conflitos e algumas funções podem não funcionar corretamente.
 
+---
 
-## Atualizando Libraries e Webdrivers
+### Atualizando Libraries e Webdrivers
+
+
+---
 
 ## Erros conhecidos
 
