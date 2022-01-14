@@ -20,7 +20,7 @@ Este script efetua alguns testes na [link](http://link).
 
 - Para verificar se possui as versões instaladas, digite no terminal:
 ```
-python --version &&  pip --version
+python --version &&  pip --version && robot --version
 ```
 
 - Para executar todos os testes, digite no terminal:
@@ -75,6 +75,7 @@ Instale as ferramentas:
   - Para verificar se o Python e o pip foram instalados com sucesso, digite no terminal `python --version && pip --version`. O `pip` é o instalador e gerenciados de pacotes do Python, e já é instalado automaticamente com o Python.
 
 - **Robot Framework**: para instalar, digite no terminal: `pip install robotframework`
+  - Adicione manualmente nas Variáveis de Ambiente (de usuário) o caminho para a pasta do executável do Robot, exemplo: *C:\Users\carol\AppData\Roaming\Python\Python310\Scripts*.
 
 - Com o comando `pip freeze`, é possível listar todos os pacotes instalados. Caso seja necessário atualizar a versão dos pacotes do Robot, digite o comando `pip install --upgrade robotframework==3.2.2` (informe a versão desejada).
 
@@ -154,21 +155,43 @@ print(result)
 
 Para executar, digite no terminal `python app.py`
 
-O Robot não utiliza a linguagem Python para testar o script. Vamos utilizar as *keywords*, para que o Robot importe nosso código do Python do arquivo *app.py* como palavra-chave:
+Para utilizar o Robot nesta aplicação, vamos criar um novo arquivo *test.robot*:
 
-```
+```pthon
 *** Settings ***
 Library     app.py
 
 
-*** Test cases ***
+*** Test Cases ***
 Deve retornar mensagem de boas vindas
     Welcome     Carol
 ```
 
+O Robot não utiliza a linguagem Python para testar o script. Vamos utilizar as *keywords*, para que o Robot importe nosso código do Python do arquivo *app.py* como palavra-chave:
+
 Para executar no Robot, digite `robot test.robot`
 
-Para utilizar o Robot nesta aplicação, vamos criar um novo arquivo *test.robot*
+O teste será executado, e além do status no prompt, serão gerados três arquivos:
+
+- output.xml
+- log.html
+- report.html
+
+Ao abrirmos o arquivo de report, teremos uma página web com o relatório do teste.
+
+Vamos editar nosso código para:
+
+```python
+*** Settings ***
+Library     app.py
+
+
+*** Test Cases ***
+Deve retornar mensagem de boas vindas
+    ${result}=      Welcome     Carol
+    Should Be Equal  ${result}  Olá Carol, bem vindo ao curso de Robot Framework!
+```
+
 ## Erros conhecidos
 
 -

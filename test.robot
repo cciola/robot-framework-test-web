@@ -2,6 +2,7 @@
 Library     app.py
 
 
-*** Test cases ***
+*** Test Cases ***
 Deve retornar mensagem de boas vindas
-    Welcome     Carol
+    ${result}=          Welcome     Carol
+    Should Be Equal     ${result}   Olá Carol, bem vindo ao curso de Robot Framework!
