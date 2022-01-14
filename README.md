@@ -32,9 +32,15 @@ Instale as ferramentas:
 
 - Com o comando `pip freeze`, é possível listar todos os pacotes instalados. Caso seja necessário atualizar a versão dos pacotes do Robot, digite o comando `pip install --upgrade robotframework==3.2.2` (informe a versão desejada).
 
-- **Selenium**: vamos instalar a library externa *SeleniumLibrary* para os testes web, com o comando `pip install --upgrade robotframework-seleniumlibrary`.
+- **Selenium**: vamos instalar a library externa *SeleniumLibrary* para os testes web, com o comando abaixo:
+  ```
+  pip install --upgrade robotframework-seleniumlibrary
+  ```
 
-- **Requests**: vamos instalar a library externa *Requests* para testes de API, com o comando `pip install -U robotframework-requests`.
+- **Requests**: vamos instalar a library externa *Requests* para testes de API, com o comando abaixo:
+  ```
+  pip install -U robotframework-requests
+  ```
 
 - **Webdrivers**: Baixe os drivers [Chromediver](https://sites.google.com/chromium.org/driver/downloads) e [Geckodriver](https://github.com/mozilla/geckodriver/releases), descompacte e salve os executáveis dentro da pasta *C:\Program Files\Python310\Scripts\\*, pois esta pasta já está mapeada nas variáveis de ambiente.
   
@@ -42,7 +48,7 @@ Instale as ferramentas:
   - *Python*, da Microsoft
   - *Robot Framework Intellisense*, do Tomi Turtiainen
 
-- [Cmder](https://cmder.net/ "Cmder"): optar pela versão full da instalação.
+- [Cmder](https://cmder.net/ "Cmder"): instale a versão **full** da instalação.
 
 - Abra um terminal que aceite comandos git (exemplo: Powershell, git bash, cmder, etc.)
 - Baixe este repositório ou faça um `git clone` (HTTPS/SSH)
