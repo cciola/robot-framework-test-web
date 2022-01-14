@@ -20,11 +20,8 @@ Este script efetua alguns testes na [link](http://link).
 
 - Para verificar se possui as versões instaladas, digite no terminal:
 ```
-xxx
+python --version &&  pip --version
 ```
-
-### Testes
-- 
 
 - Para executar todos os testes, digite no terminal:
 ```
@@ -108,7 +105,7 @@ Instale as ferramentas:
 - **Python 3**: Acesse o [site do Python](https://www.python.org/downloads/), faça o download do instalador. Na instalação:
   - marque a opção "Add Python 3.7 to PATH"
   - clique na opção **Customize installation** para prosseguir
-  - mantenha estas opções marcadas: 
+  - mantenha estas opções **marcadas**:
     - Documentation
     - pip
     - td/tk and IDLE
@@ -121,15 +118,9 @@ Instale as ferramentas:
     - *C:\Program Files\Python310\Scripts\\*
     - *C:\Program Files\Python310\\*
   - Caso não tenham sido criados, acesse a pasta de *Arquivos de Programas* do Windows, pasta Python, copie e adicione manualmente os caminhos destas duas pastas no *Path* da Variável de Ambiente de sistema.
-  - Para verificar se o Python e o pip foram instalados com sucesso, digite no terminal:
-    ```javascript
-    python --version && pip --version
-    ```
+  - Para verificar se o Python e o pip foram instalados com sucesso, digite no terminal `python --version && pip --version`
 
-- **Robot Framework**: para instalar, digite no terminal:
-  ```javascript
-  pip install robotframework
-  ```
+- **Robot Framework**: para instalar, digite no terminal: `pip install robotframework`
 
 - Com o comando `pip freeze`, é possível listar todos os pacotes instalados. Caso seja necessário atualizar a versão dos pacotes do Robot, digite o comando `pip install --upgrade robotframework==3.2.2` (informe a versão desejada).
 
