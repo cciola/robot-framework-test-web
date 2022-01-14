@@ -108,7 +108,13 @@ Instale as ferramentas:
 - **Python 3**: Acesse o [site do Python](https://www.python.org/downloads/), faça o download do instalador. Na instalação:
   - marque a opção "Add Python 3.7 to PATH"
   - clique na opção **Customize installation** para prosseguir
-  - mantenha as opções "Documentation", "pip", "", "td/tk and IDLE", "Python test suite", "py launcher" e "for all users" marcadas
+  - mantenha estas opções marcadas: 
+    - Documentation
+    - pip
+    - td/tk and IDLE
+    - Python test suite
+    - py launcher
+    - for all users
   - marque a opção "Install for all users", alterando o campo do path para *C:\Python310*
   - as opções referentes a "Download debugging" **não** precisam ser marcadas
   - após a instalação, confira nas Variáveis de Ambiente (do sistema) se os diretórios do Python 3 foram criados no *Path*:
