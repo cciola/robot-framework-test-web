@@ -99,7 +99,7 @@ O Robot Framework é um framework open source para automação de testes, desenv
 
 É estruturado para desenvolvimento dirigido a testes de aceitação (ATDD), que é uma abordagem para times ágeis de desenvolvimento, onde os requisitos são definidos e refinados pelo time (QA, Devs, PO), logo no início do projeto. Estes requisitos tornam-se executáveis posteriormente, com o ATDD. Mas o Robot pode ser utilizado mesmo que o time não seja ágil.
 
-Baseia-se em *keyword-driven*, ou seja, os testes serão escritos a alto nível, sem se preocupar com a liguagem de programação.
+Baseia-se em *keyword-driven*, ou seja, os testes serão escritos a alto nível, sem se preocupar com a linguagem de programação.
 
 É genérico, ou seja, possibilita testar qualquer sistema.
 
@@ -115,7 +115,7 @@ O Robot utiliza ***keywords*** (palavras-chave), que são uma representação da
 
 As *keywords* contém espaço simples entre si, e são reservadas da *library* utilizada. Geralmente estão escritas em Inglês. As sequências de *keywords* formam um caso ou cenário de teste.
 
-Os scripts que implementam essas palavras-chave são estritos em baixo nível (linguagem de programação). No caso do Robot, esses scripts já estão pré-programadados e disponibilizados através de *libraries*. Sendo assim, o automatizador não precisa se preocupar em implementar esses scripts.
+Os scripts que implementam essas palavras-chave são estritos em baixo nível (linguagem de programação). No caso do Robot, esses scripts já estão pré-programados e disponibilizados através de *libraries*. Sendo assim, o automatizador não precisa se preocupar em implementar esses scripts.
 
 Uma *keyword* pode ser implementada com ***sub-keywords***.
 
