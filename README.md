@@ -13,7 +13,7 @@ Este script efetua alguns testes na [link](http://link).
   - [Chromediver](https://sites.google.com/chromium.org/driver/downloads "Chromedriver")
   - [Geckodriver](https://github.com/mozilla/geckodriver/releases "Geckodriver")
   - [Cmder](https://cmder.net/ "Cmder") (opcional), optar pela instalação full
-  - *Maiores detalhes sobre a instalação de cada ferramenta na seção "Instalação" mais abaixo.*
+  - Maiores detalhes sobre a instalação de cada ferramenta na seção **Instalação** mais abaixo
 
 - Abra um terminal que aceite comandos git (exemplo: Powershell, git bash, cmder, etc.)
 - Baixe este repositório ou faça um `git clone` (HTTPS/SSH)
@@ -101,7 +101,6 @@ As *Libraries* do tipo **standard** são nativas do Robot, então você não pre
 
 Ao clicar no link da library, temos a sessão **Shortcuts**, que contém todas as *keywords* disponíveis daquela *library*. Ao clicar em um *shortcut*, direcionará para a explicação da *keyword*, e também listará os argumentos possíveis que você pode utilizar com ela.
 
----
 
 ## Instalação
 Instale as ferramentas:
