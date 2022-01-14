@@ -54,51 +54,6 @@ xxx
 ```
 
 -----------------------------------------
-### Introdução
-O Robot Framework é um framework open source para automação de testes, desenvolvido em Python. Possibilita automatizar testes web, desktop e mobile.
-
-É estruturado para desenvolvimento dirigido a testes de aceitação (ATDD), que é uma abordagem para times ágeis de desenvolvimento, onde os requisitos são definidos e refinados pelo time (QA, Devs, PO), logo no início do projeto. Estes requisitos tornam-se executáveis posteriormente, com o ATDD. Mas o Robot pode ser utilizado mesmo que o time não seja ágil.
-
-Baseia-se em *keyword-driven*, ou seja, os testes serão escritos a alto nível, sem se preocupar com a liguagem de programação.
-
-É genérico, ou seja, possibilita testar qualquer sistema.
-
-As possibilidades de testes podem ser estendidas através de *libraries* implementadas em Python ou Java. As *libraries* podem ser desenvolvidas ou customizadas de acordo com a necessidade.
-
-Não necessita de IDE. Possui uma sintaxe de escrita tabular fácil de ser utilizada em qualquer editor.
-
-Pode ser instalado e utilizado em qualquer sistema operacional.
-
-
-## A abordagem keyword-driven
-O Robot utiliza *keywords*(palavras-chave), que são uma representação da interação em alto nível (linguagem mais natural e humana) com o sistema. Elas espeitam espaços e tabulações para identificar o que é uma keyword e o que são argumentos.
-
-As **keywords** contém espaço simples entre si, e são reservadas da *library* utilizada. Geralmente estão escritas em Inglês.
-
-Os **argumentos** possuem tabulação mínima de 2 espaços entre si. As **variáveis** tabmvém possuem espaço duplo entre si.
-
-Sequências de *keywords* formam um caso ou cenário de teste.
-
-Os scripts que implementam essas palavras-chave são estritos em baixo nível (linguagem de programação). No caso do Robot, esses scripts já estão pré-programadados e disponibilizadps através de *libraries*. Sendo assim, o automatizador não precisa se preocupar em implementar esses scripts.
-
-Uma *keyword* pode ser implementada com *sub-keywords*.
-
-Apesar de já existirem diversas *libraries* disponíveis, nada impede o automatizador de criar suas próprias *keywords* com scripts programados em Python oy Java.
-
-
-## Vantagens
-- Fácil leitura e entendimento da ação que está ocorrendo
-- Fácil manutenção
-- Se bem escrita e estruturada, a sequência de *keywords* pode se tornar uma documentação
-- Bom para testadores não técnicos
-
-
-### Libraries Standard
-As *Libraries* do tipo **standard** são nativas do Robot, então você não precisa instalá-las, apenas instanciá-las nos testes.
-
-Ao clicar no link da library, temos a sessão **Shortcuts**, que contém todas as *keywords* disponíveis daquela *library*. Ao clicar em um *shortcut*, direcionará para a explicação da *keyword*, e também listará os argumentos possíveis que você pode utilizar com ela.
-
-
 ## Instalação
 Instale as ferramentas:
 
@@ -142,6 +97,51 @@ Instale as ferramentas:
 
 ## Atualizando Libraries e Webdrivers
 
+---
+
+### Introdução
+O Robot Framework é um framework open source para automação de testes, desenvolvido em Python. Possibilita automatizar testes web, desktop e mobile.
+
+É estruturado para desenvolvimento dirigido a testes de aceitação (ATDD), que é uma abordagem para times ágeis de desenvolvimento, onde os requisitos são definidos e refinados pelo time (QA, Devs, PO), logo no início do projeto. Estes requisitos tornam-se executáveis posteriormente, com o ATDD. Mas o Robot pode ser utilizado mesmo que o time não seja ágil.
+
+Baseia-se em *keyword-driven*, ou seja, os testes serão escritos a alto nível, sem se preocupar com a liguagem de programação.
+
+É genérico, ou seja, possibilita testar qualquer sistema.
+
+As possibilidades de testes podem ser estendidas através de *libraries* implementadas em Python ou Java. As *libraries* podem ser desenvolvidas ou customizadas de acordo com a necessidade.
+
+Não necessita de IDE. Possui uma sintaxe de escrita tabular fácil de ser utilizada em qualquer editor.
+
+Pode ser instalado e utilizado em qualquer sistema operacional.
+
+
+## A abordagem keyword-driven
+O Robot utiliza *keywords*(palavras-chave), que são uma representação da interação em alto nível (linguagem mais natural e humana) com o sistema. Elas espeitam espaços e tabulações para identificar o que é uma keyword e o que são argumentos.
+
+As **keywords** contém espaço simples entre si, e são reservadas da *library* utilizada. Geralmente estão escritas em Inglês.
+
+Os **argumentos** possuem tabulação mínima de 2 espaços entre si. As **variáveis** tabmvém possuem espaço duplo entre si.
+
+Sequências de *keywords* formam um caso ou cenário de teste.
+
+Os scripts que implementam essas palavras-chave são estritos em baixo nível (linguagem de programação). No caso do Robot, esses scripts já estão pré-programadados e disponibilizadps através de *libraries*. Sendo assim, o automatizador não precisa se preocupar em implementar esses scripts.
+
+Uma *keyword* pode ser implementada com *sub-keywords*.
+
+Apesar de já existirem diversas *libraries* disponíveis, nada impede o automatizador de criar suas próprias *keywords* com scripts programados em Python oy Java.
+
+
+### Vantagens
+- Fácil leitura e entendimento da ação que está ocorrendo
+- Fácil manutenção
+- Se bem escrita e estruturada, a sequência de *keywords* pode se tornar uma documentação
+- Bom para testadores não técnicos
+
+
+### Libraries Standard
+As *Libraries* do tipo **standard** são nativas do Robot, então você não precisa instalá-las, apenas instanciá-las nos testes.
+
+Ao clicar no link da library, temos a sessão **Shortcuts**, que contém todas as *keywords* disponíveis daquela *library*. Ao clicar em um *shortcut*, direcionará para a explicação da *keyword*, e também listará os argumentos possíveis que você pode utilizar com ela.
 
 ---
 
