@@ -9,12 +9,11 @@ Este script efetua alguns testes na [link](http://link).
 ### Instalação e uso da arquitetura
 - Instale as ferramentas:
   - [VSCode](https://code.visualstudio.com/ "VSCode")
-  - [NodeJS 12.18.4](https://nodejs.org/en/download/ "NodeJS 12.18.4")
-  - [NPM](https://www.npm.com/ "NPM")
-  - [CodeceptJS](https://codecept.io/ "CodeceptJS") > Guides > Use Webdriver
-  - [WebdriverIO](https://webdriver.io/ "WebdriverIO")
-  - Chrome
-  - Firefox
+  - [Python](https://www.python.org/downloads/ "Python")
+  - [Chromediver](https://sites.google.com/chromium.org/driver/downloads "Chromedriver")
+  - [Geckodriver](https://github.com/mozilla/geckodriver/releases "Geckodriver")
+  - [Cmder](https://cmder.net/ "Cmder") (opcional), optar pela instalação full
+  - *Maiores detalhes sobre a instalação de cada ferramenta na seção "Instalação" mais abaixo.*
 
 - Abra um terminal que aceite comandos git (exemplo: Powershell, git bash, cmder, etc.)
 - Baixe este repositório ou faça um `git clone` (HTTPS/SSH)
@@ -102,21 +101,30 @@ As *Libraries* do tipo **standard** são nativas do Robot, então você não pre
 
 Ao clicar no link da library, temos a sessão **Shortcuts**, que contém todas as *keywords* disponíveis daquela *library*. Ao clicar em um *shortcut*, direcionará para a explicação da *keyword*, e também listará os argumentos possíveis que você pode utilizar com ela.
 
-## Instalação
+---
 
+## Instalação
 Instale as ferramentas:
 
-- **Python 3**: Acesse o [site do Python](https://www.python.org/downloads/), faça o download, marque a opção "Add Python 3.7 to PATH", e confira nas suas Variáveis de Ambiente (de usuário) se os diretórios do Python 3 foram criados no PATH. Caso não sejam criados, acesse a pasta do usuário do Windows, pasta Python, copie e cole manualmente o caminho desta pasta na Variável de Ambiente.
-
-- Para verificar se o Python foi instalado com sucesso, digite no terminal:
-```javascript
-python --version
-```
+- **Python 3**: Acesse o [site do Python](https://www.python.org/downloads/), faça o download do instalador. Na instalação:
+  - marque a opção "Add Python 3.7 to PATH"
+  - clique na opção **Customize installation** para prosseguir
+  - mantenha as opções "Documentation", "pip", "", "td/tk and IDLE", "Python test suite", "py launcher" e "for all users" marcadas
+  - marque a opção "Install for all users", alterando o campo do path para *C:\Python310*
+  - as opções referentes a "Download debugging" **não** precisam ser marcadas
+  - após a instalação, confira nas Variáveis de Ambiente (do sistema) se os diretórios do Python 3 foram criados no *Path*:
+    - *C:\Program Files\Python310\Scripts\\*
+    - *C:\Program Files\Python310\\*
+  - Caso não tenham sido criados, acesse a pasta de *Arquivos de Programas* do Windows, pasta Python, copie e adicione manualmente os caminhos destas duas pastas no *Path* da Variável de Ambiente de sistema.
+  - Para verificar se o Python e o pip foram instalados com sucesso, digite no terminal:
+    ```javascript
+    python --version && pip --version
+    ```
 
 - **Robot Framework**: para instalar, digite no terminal:
-```javascript
-pip install robotframework
-```
+  ```javascript
+  pip install robotframework
+  ```
 
 - Com o comando `pip freeze`, é possível listar todos os pacotes instalados. Caso seja necessário atualizar a versão dos pacotes do Robot, digite o comando `pip install --upgrade robotframework==3.2.2` (informe a versão desejada).
 
@@ -126,22 +134,15 @@ pip install robotframework
 
 - **Drivers**: Vamos baixar o driver do Firefox, o [Geckodriver](https://github.com/mozilla/geckodriver/releases), e também o driver do Chrome, o [Chromedriver](https://sites.google.com/chromium.org/driver/downloads). Salve os drivers dentro da pasta *scripts* no diretório do Python, pois esta pasta já está mapeada nas variáveis de ambiente.
 
-## IDE - VSCode
-**Observação**: abaixo temos o passo a passo da instalação do VS Code.Caso deseje utilizar o ATOM, verificar o passo a passo no curso.
+- **VSCode**: o VSCode é um excelente editor de código e atualmente conta com o **melhor plugin de Robot Framework**.
 
-O VSCode é um excelente editor de código e atualmente conta com o **melhor plugin de Robot Framework**.
+- Faça o [download do VSCode](https://code.visualstudio.com/download), prossiga com os passos padrão na instalação
 
-- Faça o [download do VSCode](https://code.visualstudio.com/download);
-
-- Instale normalmente;
-
-- Acesse a opção "Extensões" e procure pela extensão chamada *Robot Framework Language Server*, da Robocorp;
-
-- Instale normalmente, não é necessário fazer nenhuma configuração adicional;
+- Vamos instalar as extensões:
+  - *Python*, da Microsoft
+  - *Robot Framework Intellisense*, do Tomi Turtiainen
 
 - Reinicie o VSCode para garantir a instalação.
-
-**Atenção:** não é necessário instalar mais nenhum outro plugin para o Robot, pois isso pode resultar em conflitos, e algumas funções podem não funcionar corretamente.
 
 ## Atualizando Libraries e Webdrivers
 
