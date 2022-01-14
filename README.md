@@ -135,7 +135,7 @@ Apesar de já existirem diversas *libraries* disponíveis, nada impede o automat
 
 
 ## Dinâmica de funcionamento do Robot
-Crie o arquivo *app.py*, contendo:
+Vamos criar um arquivo de testes em Python, *app.py*, contendo:
 ```python
 def welcome(name):
     return "Olá " + name + ", bem vindo ao curso de Robot Framework!"
@@ -146,7 +146,7 @@ print(result)
 
 Para executar, digite no terminal *python app.py*
 
-Para utilizar o Robot nesta aplicação, criar um novo arquivo `test.robot`:
+Para utilizar o Robot nesta aplicação, crie um novo arquivo `test.robot`:
 ```
 *** Settings ***
 Library     app.py
