@@ -72,7 +72,7 @@ Instale as ferramentas:
     - *C:\Program Files\Python310\Scripts\\*
     - *C:\Program Files\Python310\\*
   - Caso não tenham sido criados, acesse a pasta de *Arquivos de Programas* do Windows, pasta Python, copie e adicione manualmente os caminhos destas duas pastas no *Path* da Variável de Ambiente de sistema.
-  - Para verificar se o Python e o pip foram instalados com sucesso, digite no terminal `python --version && pip --version`
+  - Para verificar se o Python e o pip foram instalados com sucesso, digite no terminal `python --version && pip --version`. O `pip` é o instalador e gerenciados de pacotes do Python, e já é instalado automaticamente com o Python.
 
 - **Robot Framework**: para instalar, digite no terminal: `pip install robotframework`
 
@@ -94,8 +94,6 @@ Instale as ferramentas:
 
 - Reinicie o VSCode para garantir a instalação.
 
-## Atualizando Libraries e Webdrivers
-
 
 ## Introdução
 O Robot Framework é um framework open source para automação de testes, desenvolvido em Python. Possibilita automatizar testes web, desktop e mobile.
@@ -114,11 +112,11 @@ Pode ser instalado e utilizado em qualquer sistema operacional.
 
 
 ## A abordagem keyword-driven
-O Robot utiliza *keywords*(palavras-chave), que são uma representação da interação em alto nível (linguagem mais natural e humana) com o sistema. Elas espeitam espaços e tabulações para identificar o que é uma keyword e o que são argumentos.
+O Robot utiliza *keywords* (palavras-chave), que são uma representação da interação em alto nível (linguagem mais natural e humana) com o sistema. Elas espeitam espaços e tabulações para identificar o que é uma keyword e o que são argumentos.
 
 As **keywords** contém espaço simples entre si, e são reservadas da *library* utilizada. Geralmente estão escritas em Inglês.
 
-Os **argumentos** possuem tabulação mínima de 2 espaços entre si. As **variáveis** tabmvém possuem espaço duplo entre si.
+Os **argumentos** possuem tabulação mínima de 2 espaços entre si. As **variáveis** também possuem espaço duplo entre si.
 
 Sequências de *keywords* formam um caso ou cenário de teste.
 
@@ -143,6 +141,34 @@ Ao clicar no link da library, temos a sessão **Shortcuts**, que contém todas a
 
 ---
 
+## Criando o primeiro arquivo Python
+Vamos criar o arquivo *app.py*, contendo:
+
+```python
+def welcome(name):
+    return "Olá " + name + ", bem vindo ao curso de Robot Framework!"
+
+result = welcome("Carol")
+print(result)
+```
+
+Para executar, digite no terminal `python app.py`
+
+O Robot não utiliza a linguagem Python para testar o script. Vamos utilizar as *keywords*, para que o Robot importe nosso código do Python do arquivo *app.py* como palavra-chave:
+
+```
+*** Settings ***
+Library     app.py
+
+
+*** Test cases ***
+Deve retornar mensagem de boas vindas
+    Welcome     Carol
+```
+
+Para executar no Robot, digite `robot test.robot`
+
+Para utilizar o Robot nesta aplicação, vamos criar um novo arquivo *test.robot*
 ## Erros conhecidos
 
 -
