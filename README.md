@@ -52,7 +52,6 @@ xxx
   ├─ 📜 steps_file.js (aqui temos o ator)
   └─ 📜 steps.d.ts (é sobre o Typescript)
 ```
-
 -----------------------------------------
 ## Instalação
 Instale as ferramentas:
@@ -97,9 +96,8 @@ Instale as ferramentas:
 
 ## Atualizando Libraries e Webdrivers
 
----
 
-### Introdução
+## Introdução
 O Robot Framework é um framework open source para automação de testes, desenvolvido em Python. Possibilita automatizar testes web, desktop e mobile.
 
 É estruturado para desenvolvimento dirigido a testes de aceitação (ATDD), que é uma abordagem para times ágeis de desenvolvimento, onde os requisitos são definidos e refinados pelo time (QA, Devs, PO), logo no início do projeto. Estes requisitos tornam-se executáveis posteriormente, com o ATDD. Mas o Robot pode ser utilizado mesmo que o time não seja ágil.
