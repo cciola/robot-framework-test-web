@@ -3,7 +3,7 @@ Projeto do curso Automação de Testes com Robot Framework, da Mayara "May" Fern
 
 -----------------------------------------
 ### O que este script faz?
-Este script efetua alguns testes na [link](http://link).
+Este script efetua alguns testes na página [Training Wheels](https://training-wheels-protocol.herokuapp.com/).
 
 -----------------------------------------
 ### Instalação e uso da arquitetura
@@ -32,12 +32,12 @@ Instale as ferramentas:
 
 - Com o comando `pip freeze`, é possível listar todos os pacotes instalados. Caso seja necessário atualizar a versão dos pacotes do Robot, digite o comando `pip install --upgrade robotframework==3.2.2` (informe a versão desejada).
 
-- **Selenium**: vamos instalar a library externa *SeleniumLibrary* para os testes web, com o comando abaixo:
+- **Selenium**: vamos instalar a library externa *SeleniumLibrary* para os [testes web com Python](https://selenium-python.readthedocs.io/getting-started.html):
   ```
   pip install --upgrade robotframework-seleniumlibrary
   ```
 
-- **Requests**: vamos instalar a library externa *Requests* para testes de API, com o comando abaixo:
+- **Requests**: vamos instalar a library externa *Requests* para testes de API:
   ```
   pip install -U robotframework-requests
   ```
