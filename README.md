@@ -133,7 +133,6 @@ As *Libraries* do tipo ***standard*** são nativas do Robot, então você não p
 
 Apesar de já existirem diversas *libraries* disponíveis, nada impede o automatizador de criar suas próprias *keywords* com scripts programados em Python oy Java.
 
----
 
 ## Dinâmica de funcionamento do Robot
 Crie o arquivo *app.py*, contendo:
