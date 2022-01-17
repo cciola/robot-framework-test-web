@@ -63,7 +63,7 @@ python nomeArquivo.py
 
 - Para executar os testes com o Robot, digite no terminal:
 ```
-robot nomeArquivo.robot
+robot -d ./log nomeArquivo.robot
 ```
 
 -----------------------------------------
@@ -191,7 +191,7 @@ Should see page title
 Para gerar os logs dentro de uma pasta, deixando o projeto mais organizado, delete os três arquivos gerados após a execução, e execute o comando `robot -d ./log title.robot`, para gerar os logs dentro de uma pasta.
 
 ## Tags, variáveis e checkboxes
-O exemplo abaixo ilustra a utilização de tags:
+Crie o arquivo *checkbox.robot*, contendo o exemplo abaixo, que ilustra a utilização de tags:
 ```
 *** Settings ***
 Library		SeleniumLibrary
@@ -228,7 +228,7 @@ Marcando opção com XPath
 	Close Browser
 ```
 
-Neste outro exemplo, utilizamos variáveis para armazenar o *locator* dos elementos:
+Vamos melorar utilizando variáveis para armazenar o *locator* dos elementos:
 
 ```
 *** Settings ***
@@ -241,12 +241,6 @@ ${check-iron}		css:input[value='iron-man']
 ${check-panther}	xpath://*[@id='checkboxes']/input[7]
 
 *** Test Cases ***
-Should see page title
-	[tags]			est_title
-	Open Browser		https://training-wheels-protocol.herokuapp.com		chrome
-	Title Should Be		Training Wheels Protocol
-	Close Browser
-
 Marcando opção com Id
 	[tags]				test_id
 	Open Browser			${url}			chrome
@@ -279,6 +273,50 @@ Para executar todos os testes, digite `robot -d ./log title.robot`.
 
 Para executar apenas o teste de uma tag específica, digite `-i nomeDaTag`, exemplo:
 `robot -d ./log -i ironman title.robot`.
+
+## Hooks (ganchos) - Test Setup e Teardown
+São comportamentos implementados antes e após cada caso de teste, respectivamente.
+
+Vamos implementar novas *keywords* para abrir o navegador antes dos testes e acessar a página, e fechar o navegador depois dos testes: declare ao final do script
+```
+*** Keywords ***
+Nova sessão
+	Open Browser		${url}		chrome
+
+Encerra sessão
+	Close Browser
+```
+
+E depois, no início:
+```
+Test Setup	Nova sessão
+Test Teardown	Encerra sessão
+```
+
+Depois, basta eliminar dos testes as linhas correspondentes a abrir e fechar o navegador.
+
+## Resource
+Vamos criar o arquivo *base.robot* na raiz do projeto, e colocar nele tudo o que é genérico dentre os scripts de teste:
+
+```
+*** Settings ***
+Library		SeleniumLibrary
+
+*** Variables ***
+${url}				https://training-wheels-protocol.herokuapp.com
+
+*** Keywords ***
+Nova sessão
+	Open Browser	${url}		chrome
+
+Encerra sessão
+	Close Browser
+```
+
+No *Settings* dos scripts, vamos trocar a `Library SeleniumLibrary` por `Resource	base.robot`. Desta forma, estamos reaproveitando as *keywords*, *libraries* e as variáveis.
+
+## Pasta de testes
+Vamos criar a pasta *tests* na nossa estrutura, e mover o arquivo *base.robot* junto com os scripts de teste para dentro dela. Ao executar os testes, vamos declarar `robot -d ./ log tests\` para executar todos os testes.
 
 ## Dicas
 - O `pip` é o instalador e gerenciados de pacotes do Python, e já é instalado automaticamente com o Python.
