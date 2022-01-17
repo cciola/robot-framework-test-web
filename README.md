@@ -28,7 +28,7 @@ Instale as ferramentas:
   - Para verificar se o Python e o pip foram instalados com sucesso, digite no terminal `python --version && pip --version`. O `pip` é o instalador e gerenciados de pacotes do Python, e já é instalado automaticamente com o Python.
 
 - **Robot Framework**: para instalar, digite no terminal: `pip install robotframework`
-  - Adicione manualmente nas Variáveis de Ambiente (de usuário) o caminho para a pasta do executável do Robot, exemplo: *C:\Users\carol\AppData\Roaming\Python\Python310\Scripts*.
+  - Adicione manualmente no *Path* das Variáveis de Ambiente o caminho para a pasta do executável do Robot, exemplo: *C:\Users\carol\AppData\Roaming\Python\Python310\Scripts*.
 
 - Com o comando `pip freeze`, é possível listar todos os pacotes instalados. Caso seja necessário atualizar a versão dos pacotes do Robot, digite o comando `pip install --upgrade robotframework==3.2.2` (informe a versão desejada).
 
