@@ -144,13 +144,12 @@ result = welcome("Carol")
 print(result)
 ```
 
-Para executar, digite no terminal *python app.py*
+Para executar, digite no terminal `python app.py`.
 
 Para utilizar o Robot nesta aplicação, crie um novo arquivo `test.robot`:
 ```
 *** Settings ***
 Library     app.py
-
 
 *** Test Cases ***
 Deve retornar mensagem de boas vindas
@@ -173,10 +172,9 @@ Editando novamente o código para obter as informações do arquivo *app.py* por
 *** Settings ***
 Library     app.py
 
-
 *** Test Cases ***
 Deve retornar mensagem de boas vindas
-    ${result}=      Welcome     Carol
+    ${result}=       Welcome     Carol
     Should Be Equal  ${result}  Olá Carol, bem vindo ao curso de Robot Framework!
 ```
 
