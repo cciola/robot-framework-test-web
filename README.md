@@ -178,6 +178,105 @@ Deve retornar mensagem de boas vindas
     Should Be Equal  ${result}  Olá Carol, bem vindo ao curso de Robot Framework!
 ```
 
+Crie o arquivo `title.robot`, contendo:
+```
+*** Settings ***
+Library		SeleniumLibrary
+
+*** Test Cases ***
+Should see page title
+	[tags]							test_title
+	Open Browser		https://training-wheels-protocol.herokuapp.com		chrome
+	Title Should Be		Training Wheels Protocol
+	Close Browser
+```
+Para gerar os logs dentro de uma pasta, deixando o projeto mais organizado, delete os três arquivos gerados após a execução, e execute o comando `robot -d ./log title.robot`, para gerar os logs dentro de uma pasta.
+
+## Tags, variáveis e checkboxes
+O exemplo abaixo ilustra a utilização de tags:
+```
+*** Settings ***
+Library		SeleniumLibrary
+
+*** Variables ***
+${url}		https://training-wheels-protocol.herokuapp.com
+
+*** Test Cases ***
+Marcando opção com Id
+	[tags]							test_id
+	Open Browser					${url}		chrome
+	Go To							${url}/checkboxes
+	Select Checkbox					id:thor
+	Checkbox Should Be Selected		id:thor
+	Close Browser
+
+Marcando opção com CSS Selector
+	[tags]							test_css
+	Open Browser					${url}		chrome
+	Go To							${url}/checkboxes
+	Select Checkbox					css:input[value:'iron-man']
+	Checkbox Should Be Selected		css:input[value:'iron-man']
+	Sleep							5
+	Close Browser
+
+Marcando opção com XPath
+	[tags]							test_xpath
+	Open Browser					${url}		chrome
+	Go To							${url}/checkboxes
+	Select Checkbox					xpath://*[@id='checkboxes']/input[7]
+	Checkbox Should Be Selected		xpath://*[@id='checkboxes']/input[7]
+	Sleep							5
+	Close Browser
+```
+
+Neste outro exemplo, utilizamos variáveis para armazenar o *locator* dos elementos:
+
+```
+*** Settings ***
+Library		SeleniumLibrary
+
+*** Variables ***
+${url}				https://training-wheels-protocol.herokuapp.com
+${check_thor}		id:thor
+${check-iron}		css:input[value='iron-man']
+${check-panther}	xpath://*[@id='checkboxes']/input[7]
+
+*** Test Cases ***
+Should see page title
+	[tags]							test_title
+	Open Browser		https://training-wheels-protocol.herokuapp.com		chrome
+	Title Should Be		Training Wheels Protocol
+	Close Browser
+
+Marcando opção com Id
+	[tags]							test_id
+	Open Browser					${url}		chrome
+	Go To							${url}/checkboxes
+	Select Checkbox					${check_thor}
+	Checkbox Should Be Selected		${check_thor}
+	Close Browser
+
+Marcando opção com CSS Selector
+	[tags]							test_css
+	Open Browser					${url}		chrome
+	Go To							${url}/checkboxes
+	Select Checkbox					${check-iron}
+	Checkbox Should Be Selected		${check-iron}
+	Sleep							5
+	Close Browser
+
+Marcando opção com XPath
+	[tags]							test_xpath
+	Open Browser					${url}		chrome
+	Go To							${url}/checkboxes
+	Select Checkbox					${check-panther}
+	Checkbox Should Be Selected		${check-panther}
+	Sleep							5
+	Close Browser
+```
+
+Para executar todos os testes, digite `robot -d ./log title.robot`
+Para executar apenas o teste de uma tag específica, digite `-i nomeDaTag`, ficando `robot -d ./log -i ironman title.robot`.
 
 ## Erros conhecidos
 
