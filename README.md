@@ -201,10 +201,10 @@ ${url}		https://training-wheels-protocol.herokuapp.com
 
 *** Test Cases ***
 Marcando opção com Id
-	[tags]		test_id
-	Open Browser		${url}		chrome
-	Go To		${url}/checkboxes
-	Select Checkbox		id:thor
+	[tags]							test_id
+	Open Browser					${url}				chrome
+	Go To							${url}/checkboxes
+	Select Checkbox					id:thor
 	Checkbox Should Be Selected		id:thor
 	Close Browser
 
