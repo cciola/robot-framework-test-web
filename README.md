@@ -183,7 +183,7 @@ Library		SeleniumLibrary
 
 *** Test Cases ***
 Should see page title
-	[tags]				test_title
+	[tags]			test_title
 	Open Browser		https://training-wheels-protocol.herokuapp.com		chrome
 	Title Should Be		Training Wheels Protocol
 	Close Browser
@@ -201,29 +201,30 @@ ${url}		https://training-wheels-protocol.herokuapp.com
 
 *** Test Cases ***
 Marcando opção com Id
-	[tags]							test_id
-	Open Browser					${url}				chrome
-	Go To							${url}/checkboxes
-	Select Checkbox					id:thor
-	Checkbox Should Be Selected		id:thor
+	[tags]				test_id
+	Open Browser			${url}					chrome
+	Go To				${url}/checkboxes
+	Select Checkbox			id:thor
+	Checkbox Should Be Selected	id:thor
+	Sleep				5
 	Close Browser
 
 Marcando opção com CSS Selector
-	[tags]							test_css
-	Open Browser					${url}							chrome
-	Go To							${url}/checkboxes
-	Select Checkbox					css:input[value:'iron-man']
-	Checkbox Should Be Selected		css:input[value:'iron-man']
-	Sleep							5
+	[tags]				test_css
+	Open Browser			${url}					chrome
+	Go To				${url}/checkboxes
+	Select Checkbox			css:input[value:'iron-man']
+	Checkbox Should Be Selected	css:input[value:'iron-man']
+	Sleep				5
 	Close Browser
 
 Marcando opção com XPath
-	[tags]							test_xpath
-	Open Browser					${url}									chrome
-	Go To							${url}/checkboxes
-	Select Checkbox					xpath://*[@id='checkboxes']/input[7]
-	Checkbox Should Be Selected		xpath://*[@id='checkboxes']/input[7]
-	Sleep							5
+	[tags]				test_xpath
+	Open Browser			${url}					chrome
+	Go To				${url}/checkboxes
+	Select Checkbox			xpath://*[@id='checkboxes']/input[7]
+	Checkbox Should Be Selected	xpath://*[@id='checkboxes']/input[7]
+	Sleep				5
 	Close Browser
 ```
 
@@ -234,42 +235,43 @@ Neste outro exemplo, utilizamos variáveis para armazenar o *locator* dos elemen
 Library		SeleniumLibrary
 
 *** Variables ***
-${url}				https://training-wheels-protocol.herokuapp.com
+${url}			https://training-wheels-protocol.herokuapp.com
 ${check_thor}		id:thor
 ${check-iron}		css:input[value='iron-man']
 ${check-panther}	xpath://*[@id='checkboxes']/input[7]
 
 *** Test Cases ***
 Should see page title
-	[tags]				test_title
+	[tags]			est_title
 	Open Browser		https://training-wheels-protocol.herokuapp.com		chrome
 	Title Should Be		Training Wheels Protocol
 	Close Browser
 
 Marcando opção com Id
-	[tags]							test_id
-	Open Browser					${url}				chrome
-	Go To							${url}/checkboxes
-	Select Checkbox					${check_thor}
-	Checkbox Should Be Selected		${check_thor}
+	[tags]				test_id
+	Open Browser			${url}			chrome
+	Go To				${url}/checkboxes
+	Select Checkbox			${check_thor}
+	Checkbox Should Be Selected	${check_thor}
+	Sleep				5
 	Close Browser
 
 Marcando opção com CSS Selector
-	[tags]							test_css
-	Open Browser					${url}				chrome
-	Go To							${url}/checkboxes
-	Select Checkbox					${check-iron}
-	Checkbox Should Be Selected		${check-iron}
-	Sleep							5
+	[tags]				test_css
+	Open Browser			${url}			chrome
+	Go To				${url}/checkboxes
+	Select Checkbox			${check-iron}
+	Checkbox Should Be Selected	${check-iron}
+	Sleep				5
 	Close Browser
 
 Marcando opção com XPath
-	[tags]							test_xpath
-	Open Browser					${url}				chrome
-	Go To							${url}/checkboxes
-	Select Checkbox					${check-panther}
-	Checkbox Should Be Selected		${check-panther}
-	Sleep							5
+	[tags]				test_xpath
+	Open Browser			${url}			chrome
+	Go To				${url}/checkboxes
+	Select Checkbox			${check-panther}
+	Checkbox Should Be Selected	${check-panther}
+	Sleep				5
 	Close Browser
 ```
 
