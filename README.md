@@ -66,6 +66,11 @@ python nomeArquivo.py
 robot -d ./log nomeArquivo.robot
 ```
 
+- Para executar todos os testes com o Robot, digite no terminal:
+```
+robot -d ./log tests\
+```
+
 -----------------------------------------
 ### Arquitetura do projeto
 
@@ -317,6 +322,14 @@ No *Settings* dos scripts, vamos trocar a `Library SeleniumLibrary` por `Resourc
 
 ## Pasta de testes
 Vamos criar a pasta *tests* na nossa estrutura, e mover o arquivo *base.robot* junto com os scripts de teste para dentro dela. Ao executar os testes, vamos declarar `robot -d ./ log tests\` para executar todos os testes.
+
+## Capturando screenshots
+Vamos complementar nosso *Teardown* com a *keyword* `Capture Page Screenshot`, antes do fechamento do navegador. Assim garantiremos um screenshot ao final do teste, evidenciando que passou.
+```
+Encerra sessão
+	Capture Page Screenshot
+	Close Browser
+```
 
 ## Dicas
 - O `pip` é o instalador e gerenciados de pacotes do Python, e já é instalado automaticamente com o Python.
