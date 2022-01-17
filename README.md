@@ -8,7 +8,7 @@ Este script efetua alguns testes na página [Training Wheels](https://training-w
 -----------------------------------------
 ### Instalação e uso da arquitetura
 Instale as ferramentas:
-  
+
 - [Python3](https://www.python.org/downloads/ "Python"): faça o download do instalador. Na instalação:
   - marque a opção "Add Python 3.7 to PATH"
   - clique na opção "Customize installation" para prosseguir
@@ -19,18 +19,16 @@ Instale as ferramentas:
     - Python test suite
     - py launcher
     - for all users
-  - marque a opção "Install for all users", alterando o campo do path para *C:\Python310*
+  - marque a opção "Install for all users", certifique-se de que o campo do path está desta forma: *C:\Python310*
   - as opções referentes a "Download debugging" **não** precisam ser marcadas
   - após a instalação, confira nas Variáveis de Ambiente (do sistema) se os diretórios do Python 3 foram criados no *Path*:
     - *C:\Program Files\Python310\Scripts\\*
     - *C:\Program Files\Python310\\*
   - Caso não tenham sido criados, acesse a pasta de *Arquivos de Programas* do Windows, pasta Python, copie e adicione manualmente os caminhos destas duas pastas no *Path* da Variável de Ambiente de sistema.
-  - Para verificar se o Python e o pip foram instalados com sucesso, digite no terminal `python --version && pip --version`. O `pip` é o instalador e gerenciados de pacotes do Python, e já é instalado automaticamente com o Python.
+  - Para verificar se o Python e o pip foram instalados com sucesso, digite no terminal `python --version && pip --version`.
 
 - **Robot Framework**: para instalar, digite no terminal: `pip install robotframework`
   - Adicione manualmente no *Path* das Variáveis de Ambiente o caminho para a pasta do executável do Robot, exemplo: *C:\Users\carol\AppData\Roaming\Python\Python310\Scripts*.
-
-- Com o comando `pip freeze`, é possível listar todos os pacotes instalados. Caso seja necessário atualizar a versão dos pacotes do Robot, digite o comando `pip install --upgrade robotframework==3.2.2` (informe a versão desejada).
 
 - **Selenium**: vamos instalar a library externa *SeleniumLibrary* para os [testes web com Python](https://selenium-python.readthedocs.io/getting-started.html):
   ```
@@ -43,7 +41,7 @@ Instale as ferramentas:
   ```
 
 - **Webdrivers**: Baixe os drivers [Chromediver](https://sites.google.com/chromium.org/driver/downloads) e [Geckodriver](https://github.com/mozilla/geckodriver/releases), descompacte e salve os executáveis dentro da pasta *C:\Program Files\Python310\Scripts\\*, pois esta pasta já está mapeada nas variáveis de ambiente.
-  
+
 - [VSCode](https://code.visualstudio.com/ "VSCode"): o VSCode é um excelente editor de código e atualmente conta com o **melhor plugin de Robot Framework**. Faça o download, prossiga com os passos padrão na instalação. Vamos instalar as extensões, e **reiniciar o VSCode** para garantir a instalação:
   - *Python*, da Microsoft
   - *Robot Framework Intellisense*, do Tomi Turtiainen
@@ -111,7 +109,7 @@ Pode ser instalado e utilizado em qualquer sistema operacional.
 
 
 ## A abordagem keyword-driven
-O Robot utiliza ***keywords*** (palavras-chave), que são uma representação da interação em alto nível (linguagem mais natural e humana) com o sistema. Elas espeitam espaços e tabulações para identificar o que é uma keyword e o que são argumentos. 
+O Robot utiliza ***keywords*** (palavras-chave), que são uma representação da interação em alto nível (linguagem mais natural e humana) com o sistema. Elas espeitam espaços e tabulações para identificar o que é uma keyword e o que são argumentos.
 
 As *keywords* contém espaço simples entre si, e são reservadas da *library* utilizada. Geralmente estão escritas em Inglês. As sequências de *keywords* formam um caso ou cenário de teste.
 
@@ -175,7 +173,7 @@ Library     app.py
 *** Test Cases ***
 Deve retornar mensagem de boas vindas
     ${result}=       Welcome     Carol
-    Should Be Equal  ${result}  Olá Carol, bem vindo ao curso de Robot Framework!
+    Should Be Equal  ${result}   Olá Carol, bem vindo ao curso de Robot Framework!
 ```
 
 Crie o arquivo `title.robot`, contendo:
@@ -185,7 +183,7 @@ Library		SeleniumLibrary
 
 *** Test Cases ***
 Should see page title
-	[tags]							test_title
+	[tags]				test_title
 	Open Browser		https://training-wheels-protocol.herokuapp.com		chrome
 	Title Should Be		Training Wheels Protocol
 	Close Browser
@@ -204,7 +202,7 @@ ${url}		https://training-wheels-protocol.herokuapp.com
 *** Test Cases ***
 Marcando opção com Id
 	[tags]							test_id
-	Open Browser					${url}		chrome
+	Open Browser					${url}				chrome
 	Go To							${url}/checkboxes
 	Select Checkbox					id:thor
 	Checkbox Should Be Selected		id:thor
@@ -212,7 +210,7 @@ Marcando opção com Id
 
 Marcando opção com CSS Selector
 	[tags]							test_css
-	Open Browser					${url}		chrome
+	Open Browser					${url}							chrome
 	Go To							${url}/checkboxes
 	Select Checkbox					css:input[value:'iron-man']
 	Checkbox Should Be Selected		css:input[value:'iron-man']
@@ -221,7 +219,7 @@ Marcando opção com CSS Selector
 
 Marcando opção com XPath
 	[tags]							test_xpath
-	Open Browser					${url}		chrome
+	Open Browser					${url}									chrome
 	Go To							${url}/checkboxes
 	Select Checkbox					xpath://*[@id='checkboxes']/input[7]
 	Checkbox Should Be Selected		xpath://*[@id='checkboxes']/input[7]
@@ -243,14 +241,14 @@ ${check-panther}	xpath://*[@id='checkboxes']/input[7]
 
 *** Test Cases ***
 Should see page title
-	[tags]							test_title
+	[tags]				test_title
 	Open Browser		https://training-wheels-protocol.herokuapp.com		chrome
 	Title Should Be		Training Wheels Protocol
 	Close Browser
 
 Marcando opção com Id
 	[tags]							test_id
-	Open Browser					${url}		chrome
+	Open Browser					${url}				chrome
 	Go To							${url}/checkboxes
 	Select Checkbox					${check_thor}
 	Checkbox Should Be Selected		${check_thor}
@@ -258,7 +256,7 @@ Marcando opção com Id
 
 Marcando opção com CSS Selector
 	[tags]							test_css
-	Open Browser					${url}		chrome
+	Open Browser					${url}				chrome
 	Go To							${url}/checkboxes
 	Select Checkbox					${check-iron}
 	Checkbox Should Be Selected		${check-iron}
@@ -267,7 +265,7 @@ Marcando opção com CSS Selector
 
 Marcando opção com XPath
 	[tags]							test_xpath
-	Open Browser					${url}		chrome
+	Open Browser					${url}				chrome
 	Go To							${url}/checkboxes
 	Select Checkbox					${check-panther}
 	Checkbox Should Be Selected		${check-panther}
@@ -275,8 +273,15 @@ Marcando opção com XPath
 	Close Browser
 ```
 
-Para executar todos os testes, digite `robot -d ./log title.robot`
-Para executar apenas o teste de uma tag específica, digite `-i nomeDaTag`, ficando `robot -d ./log -i ironman title.robot`.
+Para executar todos os testes, digite `robot -d ./log title.robot`.
+
+Para executar apenas o teste de uma tag específica, digite `-i nomeDaTag`, exemplo:
+`robot -d ./log -i ironman title.robot`.
+
+## Dicas
+- O `pip` é o instalador e gerenciados de pacotes do Python, e já é instalado automaticamente com o Python.
+
+- Com o comando `pip freeze`, é possível listar todos os pacotes instalados. Caso seja necessário atualizar a versão dos pacotes do Robot, digite o comando `pip install --upgrade robotframework==3.2.2` (informe a versão desejada).
 
 ## Erros conhecidos
 
