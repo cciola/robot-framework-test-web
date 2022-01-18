@@ -188,7 +188,7 @@ Library		SeleniumLibrary
 
 *** Test Cases ***
 Should see page title
-	[tags]			test_title
+	[tags]			title
 	Open Browser		https://training-wheels-protocol.herokuapp.com		chrome
 	Title Should Be		Training Wheels Protocol
 	Close Browser
@@ -206,7 +206,7 @@ ${url}		https://training-wheels-protocol.herokuapp.com
 
 *** Test Cases ***
 Marcando opção com Id
-	[tags]				test_id
+	[tags]				check_id
 	Open Browser			${url}					chrome
 	Go To				${url}/checkboxes
 	Select Checkbox			id:thor
@@ -215,7 +215,7 @@ Marcando opção com Id
 	Close Browser
 
 Marcando opção com CSS Selector
-	[tags]				test_css
+	[tags]				check_css
 	Open Browser			${url}					chrome
 	Go To				${url}/checkboxes
 	Select Checkbox			css:input[value:'iron-man']
@@ -224,7 +224,7 @@ Marcando opção com CSS Selector
 	Close Browser
 
 Marcando opção com XPath
-	[tags]				test_xpath
+	[tags]				check_xpath
 	Open Browser			${url}					chrome
 	Go To				${url}/checkboxes
 	Select Checkbox			xpath://*[@id='checkboxes']/input[7]
@@ -247,7 +247,7 @@ ${check-panther}	xpath://*[@id='checkboxes']/input[7]
 
 *** Test Cases ***
 Marcando opção com Id
-	[tags]				test_id
+	[tags]				check_id
 	Open Browser			${url}			chrome
 	Go To				${url}/checkboxes
 	Select Checkbox			${check_thor}
@@ -256,7 +256,7 @@ Marcando opção com Id
 	Close Browser
 
 Marcando opção com CSS Selector
-	[tags]				test_css
+	[tags]				check_css
 	Open Browser			${url}			chrome
 	Go To				${url}/checkboxes
 	Select Checkbox			${check-iron}
@@ -265,7 +265,7 @@ Marcando opção com CSS Selector
 	Close Browser
 
 Marcando opção com XPath
-	[tags]				test_xpath
+	[tags]				check_xpath
 	Open Browser			${url}			chrome
 	Go To				${url}/checkboxes
 	Select Checkbox			${check-panther}
@@ -308,17 +308,17 @@ Vamos criar o arquivo *base.robot* na raiz do projeto, e colocar nele tudo o que
 Library		SeleniumLibrary
 
 *** Variables ***
-${url}				https://training-wheels-protocol.herokuapp.com
+${url}		https://training-wheels-protocol.herokuapp.com
 
 *** Keywords ***
 Nova sessão
-	Open Browser	${url}		chrome
+	Open Browser	${url}      chrome
 
 Encerra sessão
 	Close Browser
 ```
 
-No *Settings* dos scripts, vamos trocar a `Library SeleniumLibrary` por `Resource	base.robot`. Desta forma, estamos reaproveitando as *keywords*, *libraries* e as variáveis.
+No *Settings* dos scripts, vamos trocar a `Library SeleniumLibrary` por `Resource    base.robot`. Desta forma, estamos reaproveitando as *keywords*, *libraries* e as variáveis.
 
 ## Pasta de testes
 Vamos criar a pasta *tests* na nossa estrutura, e mover o arquivo *base.robot* junto com os scripts de teste para dentro dela. Ao executar os testes, vamos declarar `robot -d ./ log tests\` para executar todos os testes.
@@ -329,6 +329,50 @@ Vamos complementar nosso *Teardown* com a *keyword* `Capture Page Screenshot`, a
 Encerra sessão
 	Capture Page Screenshot
 	Close Browser
+```
+
+## Radio buttons
+Crie o arquivo *radiobutton.robot*. Para testar radio buttons, temos as seguintes *keywords*:
+```
+*** Settings ***
+Resource		base.robot
+
+Test Setup		Nova sessão
+Test Teardown		Encerra sessão
+
+*** Test Cases ***
+Selecionando por Id
+	[tags]							radio_id
+	Go To							${url}/radios
+	Select Radio Button					movies			cap
+	Radio BUtton Should Be Set To		movies		cap
+
+Selecionando por Value
+	[tags]							radio_value
+	Go To							${url}/radios
+	Select Radio Button					movies			guardians
+	Radio BUtton Should Be Set To		movies		guardians
+```
+
+## Menu de opções (combobox/select)
+Crie o arquivo *select.robot*. Para testar campos de seleção, temos as seguintes *keywords*:
+```
+*** Settings ***
+Resource		base.robot
+
+Test Setup		Nova sessão
+Test Teardown	Encerra sessão
+
+*** Test Cases ***
+Selecionar opção por texto
+	[tags]						select_texto
+	Go To						${url}/dropdown
+	Select From List By Label			class:avenger-list		Scott Lang
+
+Selecionar opção por valor
+	[tags]						select_value
+	Go To						${url}/dropdown
+	Select From List By Value			id:dropdown			6
 ```
 
 ## Dicas
