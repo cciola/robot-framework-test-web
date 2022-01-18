@@ -156,7 +156,7 @@ Library     app.py
 
 *** Test Cases ***
 Deve retornar mensagem de boas vindas
-    Welcome     Carol
+    Welcome       Carol
 ```
 
 O Robot não utiliza a linguagem Python para testar o script; as *keywords* são utilizadas para que o Robot importe o código do Python do arquivo *app.py* como palavra-chave.
@@ -177,8 +177,8 @@ Library     app.py
 
 *** Test Cases ***
 Deve retornar mensagem de boas vindas
-    ${result}=       Welcome     Carol
-    Should Be Equal  ${result}   Olá Carol, bem vindo ao curso de Robot Framework!
+    ${result}=          	Welcome        	   Carol
+    Should Be Equal     	${result}      	   Olá Carol, bem vindo ao curso de Robot Framework!
 ```
 
 Crie o arquivo `title.robot`, contendo:
@@ -189,7 +189,7 @@ Library		SeleniumLibrary
 *** Test Cases ***
 Should see page title
 	[tags]			title
-	Open Browser		https://training-wheels-protocol.herokuapp.com		chrome
+	Open Browser		https://training-wheels-protocol.herokuapp.com	      chrome
 	Title Should Be		Training Wheels Protocol
 	Close Browser
 ```
@@ -286,7 +286,7 @@ Vamos implementar novas *keywords* para abrir o navegador antes dos testes e ace
 ```
 *** Keywords ***
 Nova sessão
-	Open Browser		${url}		chrome
+	Open Browser	   ${url}	 chrome
 
 Encerra sessão
 	Close Browser
@@ -344,13 +344,13 @@ Test Teardown		Encerra sessão
 Selecionando por Id
 	[tags]							radio_id
 	Go To							${url}/radios
-	Select Radio Button					movies			cap
+	Select Radio Button					movies		     cap
 	Radio BUtton Should Be Set To		movies		cap
 
 Selecionando por Value
 	[tags]							radio_value
 	Go To							${url}/radios
-	Select Radio Button					movies			guardians
+	Select Radio Button					movies		     guardians
 	Radio BUtton Should Be Set To		movies		guardians
 ```
 
@@ -365,21 +365,17 @@ Test Teardown	Encerra sessão
 
 *** Test Cases ***
 Selecionar opção por texto
-	[tags]						select_texto
-	Go To						${url}/dropdown
-	Select From List By Label			class:avenger-list		Scott Lang
+	[tags]				select_texto
+	Go To				${url}/dropdown
+	Select From List By Label	class:avenger-list	Scott Lang
 
 Selecionar opção por valor
-	[tags]						select_value
-	Go To						${url}/dropdown
-	Select From List By Value			id:dropdown			6
+	[tags]				select_value
+	Go To				${url}/dropdown
+	Select From List By Value	id:dropdown		6
 ```
 
 ## Dicas
 - O `pip` é o instalador e gerenciados de pacotes do Python, e já é instalado automaticamente com o Python.
 
 - Com o comando `pip freeze`, é possível listar todos os pacotes instalados. Caso seja necessário atualizar a versão dos pacotes do Robot, digite o comando `pip install --upgrade robotframework==3.2.2` (informe a versão desejada).
-
-## Erros conhecidos
-
--
