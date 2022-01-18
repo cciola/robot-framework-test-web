@@ -337,7 +337,7 @@ Encerra sessão
 ```
 
 ## Radio buttons
-Crie o arquivo *radiobutton.robot*. Para testar radio buttons, temos as seguintes *keywords*:
+Crie o arquivo *radiobutton.robot*, com o seguinte conteúdo:
 ```
 *** Settings ***
 Resource		base.robot
@@ -360,12 +360,12 @@ Selecionando por Value
 ```
 
 ## Menu de opções (combobox/select)
-Crie o arquivo *select.robot*. Para testar campos de seleção, temos as seguintes *keywords*:
+Crie o arquivo *select.robot*, com o seguinte conteúdo:
 ```
 *** Settings ***
-Resource		base.robot
+Resource	    base.robot
 
-Test Setup		    Nova sessão
+Test Setup	    Nova sessão
 Test Teardown       Encerra sessão
 
 *** Test Cases ***
@@ -384,7 +384,61 @@ Selecionar opção por valor e validar pelo texto
 	Should Be Equal			    ${selected}			    Loki
 ```
 
+## Validando registros em tabelas
+Crie o arquivo *tables.robot*. No Robot, para validar um valor de uma tabela, é necessário saber qual é o número da linha na qual o registro consta.
+
+É necessário primeiramente informar qual é a tabela, depois o número da linha, e finalmente o valor que será verificado:
+```
+Table Row Should Contain		    id:actors		1	$ 10.000,00
+```
+
+Se o valor for único na linha, podemos informar o valor independentemente da coluna em que ele se encontra:
+```
+Table Row Should Contain		    id:actors		1	@robertdowneyjr
+```
+
+Caso ocorra alguma mudança na tabela e a massa mude de linha, por exemplo, podemos efetuar um teste para descobrir a linha pelo texto chave, e validar os demais valores:
+```
+*** Settings ***
+Resource	base.robot
+
+Test Setup	Nova sessão
+Test Teardown	Encerra sessão
+
+*** Test Cases ***
+Verifica o valor ao informar o número da linha
+	Go To				   ${url}/tables
+	Table Row Should Contain	   id:actors	      1	       $ 10.000.000
+
+Descobre a linha pelo texto chave e valida os demais valores
+	Go To			${url}/tables
+	${target}=		Get Web Element		xpath:.//tr[contains(., '@chadwickboseman')]
+	Should Contain		${target.text}		$ 700.000
+	Should Contain		${target.text}		Pantera Negra
+```
+
+É possível imprimir os valores encontrados no relatório, utilizando a *keyword* `Log`, e também exibir os valores no console, utilizando `Log To Console`:
+```
+Descobre a linha pelo texto chave e valida os demais valores
+	Go To						${url}/tables
+	${target}=					Get Web Element		xpath:.//tr[contains(., '@chadwickboseman')]
+	Log						${target.text}
+	Log To Console		${target.text}
+	Should Contain		${target.text}		$ 700.000
+	Should Contain		${target.text}		Pantera Negra
+```
+
+## Preenchendo formulários
+
+## Validando notificações
+
+## Page Objects com novas keywords
+
+## Robot Framework ou Cypress? Por que não ambos?
+[Vídeo](https://www.youtube.com/watch?v=SUsSWP-g7o0) do QA Ninja week - 26/10/2021
 ## Dicas
 - O `pip` é o instalador e gerenciados de pacotes do Python, e já é instalado automaticamente com o Python.
 
 - Com o comando `pip freeze`, é possível listar todos os pacotes instalados. Caso seja necessário atualizar a versão dos pacotes do Robot, digite o comando `pip install --upgrade robotframework==3.2.2` (informe a versão desejada).
+
+- Ao executar testes cuja *Library* utilizada seja um arquivo Python, a pasta *__pycache__* é criada automaticamente.
