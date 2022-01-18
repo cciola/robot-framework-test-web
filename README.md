@@ -80,25 +80,21 @@ robot -d ./log tests\nomeDoArquivo.robot
 ### Arquitetura do projeto
 
 ```
-📂 automacao-codeceptjs-web/
-  ├─ 📂 node_modules/ (módulos instalados após os comandos que informamos)
-  ├─ 📂 output/ (pasta que armazena relatórios e screenshots dos testes que falharam)
-  ├─ 📂 pages/ (pasta que contém os arquivos com elementos das páginas que iremos testar)
-      └─ 📜 create_user_page.js
-      └─ 📜 home_page.js
-      └─ 📜 login_page.js
-      └─ 📜 my_account_page.js
-  ├─ 📂 steps/ (pasta que contém os arquivos com os passos dos testes - BDD)
-        └─ 📜 create_user_test.js
-        └─ 📜 login_test.js
+📂 robot-framework-test-web/
+  ├─ 📂 log/ (pasta que armazena relatórios e screenshots dos testes)
+      └─ 📜 log.html
+      └─ 📜 output.xml
+      └─ 📜 report.html
+  ├─ 📂 tests/ (pasta que contém os scripts dos testes)
+      └─ 📜 base.robot
+      └─ 📜 checkbox.robot
+      └─ 📜 radiobutton.robot
+      └─ 📜 select.robot
+      └─ 📜 title.robot
+  ├─ 📜 app.py
+  ├─ 📜 test.robot
   ├─ 📜 .gitignore
-  ├─ 📜 codeceptjs.conf.js (arquivo de configurações)
-  ├─ 📜 jsconfig.json (permite que o Javascript esteja ativo como linguagem padrão do projeto)
-  ├─ 📜 package-lock.json (contém tudo sobre os pacotes que foram instalados)
-  ├─ 📜 package.json
-  ├─ 📜 README.md
-  ├─ 📜 steps_file.js (aqui temos o ator)
-  └─ 📜 steps.d.ts (é sobre o Typescript)
+  └─ 📜 README.md
 ```
 -----------------------------------------
 
@@ -140,7 +136,6 @@ Os **argumentos** devem ser declarados com uma tabulação de 2 espaços entre s
 As *Libraries* do tipo ***standard*** são nativas do Robot, então você não precisa instalá-las, apenas instanciá-las nos testes.
 
 Apesar de já existirem diversas *libraries* disponíveis, nada impede o automatizador de criar suas próprias *keywords* com scripts programados em Python oy Java.
-
 
 ## Dinâmica de funcionamento do Robot
 Vamos criar um arquivo de testes em Python, *app.py*, contendo:
@@ -198,10 +193,10 @@ Should see page title
 	Title Should Be		Training Wheels Protocol
 	Close Browser
 ```
-Para gerar os logs dentro de uma pasta, deixando o projeto mais organizado, delete os três arquivos gerados após a execução, e execute o comando `robot -d ./log title.robot`, para gerar os logs dentro de uma pasta.
+Para gerar os logs dentro de uma pasta, deixando o projeto mais organizado, delete os três arquivos gerados após a execução, e execute o comando `robot -d ./log title.robot`.
 
 ## Tags, variáveis e checkboxes
-Crie o arquivo *checkbox.robot*, contendo o exemplo abaixo, que ilustra a utilização de tags:
+Crie o arquivo *checkbox.robot* contendo o exemplo abaixo, que ilustra a utilização de tags:
 ```
 *** Settings ***
 Library		SeleniumLibrary
@@ -238,7 +233,7 @@ Marcando opção com XPath
 	Close Browser
 ```
 
-Vamos melorar utilizando variáveis para armazenar o *locator* dos elementos:
+Vamos melhorar utilizando variáveis para armazenar o *locator* dos elementos:
 
 ```
 *** Settings ***
@@ -281,13 +276,15 @@ Marcando opção com XPath
 
 Para executar todos os testes, digite `robot -d ./log title.robot`.
 
-Para executar apenas o teste de uma tag específica, digite `-i nomeDaTag`, exemplo:
-`robot -d ./log -i ironman title.robot`.
+Para executar apenas o teste de uma tag específica, digite `-i nomeDaTag`:
+```
+robot -d ./log -i ironman title.robot
+```
 
-## Hooks (ganchos) - Test Setup e Teardown
+## Hooks (ganchos): Test Setup e Test Teardown
 São comportamentos implementados antes e após cada caso de teste, respectivamente.
 
-Vamos implementar novas *keywords* para abrir o navegador antes dos testes e acessar a página, e fechar o navegador depois dos testes: declare ao final do script
+Vamos implementar novas *keywords* para abrir o navegador antes dos testes e acessar a página, e fechar o navegador depois dos testes. Declare ao final do script:
 ```
 *** Keywords ***
 Nova sessão
@@ -306,8 +303,7 @@ Test Teardown	Encerra sessão
 Depois, basta eliminar dos testes as linhas correspondentes a abrir e fechar o navegador.
 
 ## Resource
-Vamos criar o arquivo *base.robot* na raiz do projeto, e colocar nele tudo o que é genérico dentre os scripts de teste:
-
+Crie o arquivo *base.robot* na raiz do projeto, e acrescente nele tudo o que é genérico dentre os scripts de teste:
 ```
 *** Settings ***
 Library		SeleniumLibrary
@@ -323,10 +319,10 @@ Encerra sessão
 	Close Browser
 ```
 
-No *Settings* dos scripts, vamos trocar a `Library SeleniumLibrary` por `Resource    base.robot`. Desta forma, estamos reaproveitando as *keywords*, *libraries* e as variáveis.
+No *Settings* dos scripts, troque a `Library SeleniumLibrary` por `Resource    base.robot`. Desta forma, estamos reaproveitando as *keywords*, as *libraries* e as variáveis.
 
 ## Pasta de testes
-Vamos criar a pasta *tests* na nossa estrutura, e mover o arquivo *base.robot* junto com os scripts de teste para dentro dela. Ao executar os testes, vamos declarar `robot -d ./ log tests\` para executar todos os testes.
+Crie a pasta *tests* na nossa estrutura, e mover o arquivo *base.robot* junto com os scripts de teste para dentro dela. Ao executar os testes, vamos declarar `robot -d ./ log tests\` para executar todos os testes.
 
 ## Capturando screenshots
 Vamos complementar nosso *Teardown* com a *keyword* `Capture Page Screenshot`, antes do fechamento do navegador. Assim garantiremos um screenshot ao final do teste, evidenciando que passou.
