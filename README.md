@@ -1,5 +1,6 @@
 ## Automação de testes com Robot Framework
-Projeto do curso Automação de Testes com Robot Framework, da Mayara "May" Fernandes, da Udemy.
+Projeto do curso de Robot Beginner, da QA Ninja.
+*Automação de Testes com Robot Framework, da Mayara "May" Fernandes, da Udemy.*
 
 -----------------------------------------
 ### O que este script faz?
@@ -137,7 +138,9 @@ As *Libraries* do tipo ***standard*** são nativas do Robot, então você não p
 
 Apesar de já existirem diversas *libraries* disponíveis, nada impede o automatizador de criar suas próprias *keywords* com scripts programados em Python oy Java.
 
-## Dinâmica de funcionamento do Robot
+---
+
+## Dinâmica de funcionamento do Robot - exemplo com Library Python
 Vamos criar um arquivo de testes em Python, *app.py*, contendo:
 ```python
 def welcome(name):
@@ -404,24 +407,24 @@ Test Teardown	Encerra sessão
 *** Test Cases ***
 Verifica o valor ao informar o número da linha
 	Go To				   ${url}/tables
-	Table Row Should Contain	   id:actors	      1	       $ 10.000.000
+	Table Row Should Contain	   id:actors	        1	    $ 10.000.000
 
 Descobre a linha pelo texto chave e valida os demais valores
-	Go To			${url}/tables
-	${target}=		Get Web Element		xpath:.//tr[contains(., '@chadwickboseman')]
-	Should Contain		${target.text}		$ 700.000
-	Should Contain		${target.text}		Pantera Negra
+	Go To				   ${url}/tables
+	${target}=			   Get Web Element	xpath:.//tr[contains(., '@chadwickboseman')]
+	Should Contain			   ${target.text}	$ 700.000
+	Should Contain			   ${target.text}	Pantera Negra
 ```
 
 É possível imprimir os valores encontrados no relatório, utilizando a *keyword* `Log`, e também exibir os valores no console, utilizando `Log To Console`:
 ```
 Descobre a linha pelo texto chave e valida os demais valores
-	Go To						${url}/tables
-	${target}=					Get Web Element		xpath:.//tr[contains(., '@chadwickboseman')]
-	Log						${target.text}
-	Log To Console		${target.text}
-	Should Contain		${target.text}		$ 700.000
-	Should Contain		${target.text}		Pantera Negra
+	Go To				   ${url}/tables
+	${target}=			   Get Web Element	 xpath:.//tr[contains(., '@chadwickboseman')]
+	Log				   ${target.text}
+	Log To Console			   ${target.text}
+	Should Contain			   ${target.text}	 $ 700.000
+	Should Contain			   ${target.text}	 Pantera Negra
 ```
 
 ## Preenchendo formulários
