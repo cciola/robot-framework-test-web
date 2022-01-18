@@ -66,9 +66,14 @@ python nomeArquivo.py
 robot -d ./log nomeArquivo.robot
 ```
 
+- Para executar os testes de um arquivo específico com o Robot, digite no terminal:
+```
+robot -d ./log tests\nomeDoArquivo.robot
+```
+
 - Para executar todos os testes com o Robot, digite no terminal:
 ```
-robot -d ./log tests\
+robot -d ./log tests\nomeDoArquivo.robot
 ```
 
 -----------------------------------------
@@ -294,7 +299,7 @@ Encerra sessão
 
 E depois, no início:
 ```
-Test Setup	Nova sessão
+Test Setup		Nova sessão
 Test Teardown	Encerra sessão
 ```
 
@@ -360,24 +365,26 @@ Crie o arquivo *select.robot*. Para testar campos de seleção, temos as seguint
 *** Settings ***
 Resource		base.robot
 
-Test Setup		Nova sessão
-Test Teardown	Encerra sessão
+Test Setup		    Nova sessão
+Test Teardown       Encerra sessão
 
 *** Test Cases ***
-Selecionar opção por texto
-	[tags]				select_texto
-	Go To				${url}/dropdown
-	Select From List By Label	class:avenger-list	Scott Lang
+Selecionar opção por texto e validar pelo valor
+	[tags]				            select_texto
+	Go To				            ${url}/dropdown
+	Select From List By Label	    class:avenger-list      		Scott Lang
+	${selected}=					Get Selected List Value			class:avenger-list
+	Should Be Equal					${selected}						7
 
-Selecionar opção por valor
-	[tags]				select_value
-	Go To				${url}/dropdown
-	Select From List By Value	id:dropdown		6
+Selecionar opção por valor e validar pelo texto
+	[tags]				            select_value
+	Go To				            ${url}/dropdown
+	Select From List By Value	    id:dropdown		        		6
+	${selected}=					Get Selected List Label			id:dropdown
+	Should Be Equal					${selected}						Loki
 ```
 
 ## Dicas
 - O `pip` é o instalador e gerenciados de pacotes do Python, e já é instalado automaticamente com o Python.
 
 - Com o comando `pip freeze`, é possível listar todos os pacotes instalados. Caso seja necessário atualizar a versão dos pacotes do Robot, digite o comando `pip install --upgrade robotframework==3.2.2` (informe a versão desejada).
-
-teste
