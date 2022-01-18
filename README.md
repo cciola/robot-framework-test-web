@@ -379,3 +379,5 @@ Selecionar opção por valor
 - O `pip` é o instalador e gerenciados de pacotes do Python, e já é instalado automaticamente com o Python.
 
 - Com o comando `pip freeze`, é possível listar todos os pacotes instalados. Caso seja necessário atualizar a versão dos pacotes do Robot, digite o comando `pip install --upgrade robotframework==3.2.2` (informe a versão desejada).
+
+teste
