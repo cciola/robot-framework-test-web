@@ -382,7 +382,7 @@ Selecionar opção por valor e validar pelo texto
 	Should Be Equal			    ${selected}			    Loki
 ```
 
-Ao utilizarmos alguma *keyword* que contenha `Get`, indica que podemos ter um retorno. É necessário utilizar `${nomeElemento}=` e em seguida o locator do elemento, para indicar de onde queremos obter algo para ser verificado.
+Ao utilizarmos alguma *keyword* que contenha `Get`, indica que podemos ter um retorno. É necessário utilizar uma variável para informar o nome do elemento `${nomeElemento}=`, e em seguida indicar o *locator* do elemento, para indicar de onde queremos obter algo para ser verificado.
 
 ## Validando registros em tabelas
 Crie o arquivo *tables.robot*. No Robot, para validar um valor de uma tabela, é necessário saber qual é o número da linha na qual o registro consta.
@@ -475,6 +475,24 @@ Login com usuário inexistente
 ```
 
 ## Page Objects com novas keywords
+Continuando no script anterior, vamos utilizar o recurso *custom keyword* para criar nossas próprias palavras-chave. A declaração é feita da seguinte forma:
+```
+*** Keywords ***
+Login With
+	[Arguments]			    ${usrname}				  ${pass}
+	Input Text			    css:input[name=username]		  ${usrname}
+	Input Text			    css:input[name=password]		  ${pass}
+	Click Element			    class:btn-login
+
+```
+
+Altere o trecho onde as *keywords* `Input Text` e `Click Element` estavam declaradas, informando nossa nova *keyword* `Login With`, seguida dos valores:
+```
+*** Test Cases ***
+Login com sucesso
+	Go To				    ${url}/login
+	Login With			    stark				  jarvis!
+```
 
 ## Robot Framework ou Cypress? Por que não ambos?
 [Vídeo](https://www.youtube.com/watch?v=SUsSWP-g7o0) do QA Ninja week - 26/10/2021
