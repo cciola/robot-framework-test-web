@@ -1,6 +1,5 @@
 ## Automação de testes com Robot Framework
 Projeto do curso de Robot Beginner, da QA Ninja.
-*Automação de Testes com Robot Framework, da Mayara "May" Fernandes, da Udemy.*
 
 -----------------------------------------
 ### O que este script faz?
@@ -57,11 +56,6 @@ Instale as ferramentas:
 python --version &&  pip --version && robot --version
 ```
 
-- Para executar os testes em Python, digite no terminal:
-```
-python nomeArquivo.py
-```
-
 - Para executar os testes com o Robot, digite no terminal:
 ```
 robot -d ./log nomeArquivo.robot
@@ -98,104 +92,6 @@ robot -d ./log tests\nomeDoArquivo.robot
   └─ 📜 README.md
 ```
 -----------------------------------------
-
-## Introdução
-O Robot Framework é um framework open source para automação de testes, desenvolvido em Python. Possibilita automatizar testes web, desktop e mobile.
-
-É estruturado para desenvolvimento dirigido a testes de aceitação (ATDD), que é uma abordagem para times ágeis de desenvolvimento, onde os requisitos são definidos e refinados pelo time (QA, Devs, PO), logo no início do projeto. Estes requisitos tornam-se executáveis posteriormente, com o ATDD. Mas o Robot pode ser utilizado mesmo que o time não seja ágil.
-
-Baseia-se em *keyword-driven*, ou seja, os testes serão escritos a alto nível, sem se preocupar com a linguagem de programação.
-
-É genérico, ou seja, possibilita testar qualquer sistema.
-
-As possibilidades de testes podem ser estendidas através de *libraries* implementadas em Python ou Java. As *libraries* podem ser desenvolvidas ou customizadas de acordo com a necessidade.
-
-Não necessita de IDE. Possui uma sintaxe de escrita tabular fácil de ser utilizada em qualquer editor.
-
-Pode ser instalado e utilizado em qualquer sistema operacional.
-
-### A abordagem keyword-driven
-O Robot utiliza ***keywords*** (palavras-chave), que são uma representação da interação em alto nível (linguagem mais natural e humana) com o sistema. Elas espeitam espaços e tabulações para identificar o que é uma keyword e o que são argumentos.
-
-As *keywords* contém espaço simples entre si, e são reservadas da *library* utilizada. Geralmente estão escritas em Inglês. As sequências de *keywords* formam um caso ou cenário de teste.
-
-Os scripts que implementam essas palavras-chave são estritos em baixo nível (linguagem de programação). No caso do Robot, esses scripts já estão pré-programados e disponibilizados através de *libraries*. Sendo assim, o automatizador não precisa se preocupar em implementar esses scripts.
-
-Uma *keyword* pode ser implementada com ***sub-keywords***.
-
-Algumas vantagens da abordagem *keyword-driven*:
-- Fácil leitura e entendimento da ação que está ocorrendo
-- Fácil manutenção
-- Se bem escrita e estruturada, a sequência de *keywords* pode se tornar uma documentação
-- Bom para testadores não técnicos
-
-### Tabulação
-Os **argumentos** devem ser declarados com uma tabulação de 2 espaços entre si. As **variáveis** também devem possuir um espaço duplo entre si.
-
-### Libraries Standard
-As *Libraries* do tipo ***standard*** são nativas do Robot, então você não precisa instalá-las, apenas instanciá-las nos testes.
-
-Apesar de já existirem diversas *libraries* disponíveis, nada impede o automatizador de criar suas próprias *keywords* com scripts programados em Python oy Java.
-
----
-
-## Dinâmica de funcionamento do Robot - exemplo com Library Python
-Vamos criar um arquivo de testes em Python, *app.py*, contendo:
-```python
-def welcome(name):
-    return "Olá " + name + ", bem vindo ao curso de Robot Framework!"
-
-result = welcome("Carol")
-print(result)
-```
-
-Para executar, digite no terminal `python app.py`.
-
-Para utilizar o Robot nesta aplicação, crie um novo arquivo `test.robot`:
-```
-*** Settings ***
-Library     app.py
-
-*** Test Cases ***
-Deve retornar mensagem de boas vindas
-    Welcome       Carol
-```
-
-O Robot não utiliza a linguagem Python para testar o script; as *keywords* são utilizadas para que o Robot importe o código do Python do arquivo *app.py* como palavra-chave.
-
-Para executar no Robot, digite `robot test.robot`. O teste será executado, e além do status no prompt, serão gerados três arquivos:
-
-- *output.xml*
-- *log.html*
-- *report.html*
-
-Ao abrir o arquivo de report, teremos uma página web com o relatório do teste.
-
-Editando novamente o código para obter as informações do arquivo *app.py* por meio de *keywords*:
-
-```
-*** Settings ***
-Library     app.py
-
-*** Test Cases ***
-Deve retornar mensagem de boas vindas
-    ${result}=          	Welcome        	   Carol
-    Should Be Equal     	${result}      	   Olá Carol, bem vindo ao curso de Robot Framework!
-```
-
-Crie o arquivo `title.robot`, contendo:
-```
-*** Settings ***
-Library		SeleniumLibrary
-
-*** Test Cases ***
-Should see page title
-	[tags]			title
-	Open Browser		https://training-wheels-protocol.herokuapp.com	      chrome
-	Title Should Be		Training Wheels Protocol
-	Close Browser
-```
-Para gerar os logs dentro de uma pasta, deixando o projeto mais organizado, delete os três arquivos gerados após a execução, e execute o comando `robot -d ./log title.robot`.
 
 ## Tags, variáveis e checkboxes
 Crie o arquivo *checkbox.robot* contendo o exemplo abaixo, que ilustra a utilização de tags:
@@ -551,10 +447,3 @@ Shouls See Logged User
 	[Arguments]			    ${full_name}
 	Page Should Contain		    Olá, ${full_name}. Você acessou a área logada!
 ```
-
-## Dicas
-- O `pip` é o instalador e gerenciados de pacotes do Python, e já é instalado automaticamente com o Python.
-
-- Com o comando `pip freeze`, é possível listar todos os pacotes instalados. Caso seja necessário atualizar a versão dos pacotes do Robot, digite o comando `pip install --upgrade robotframework==3.2.2` (informe a versão desejada).
-
-- Ao executar testes cuja *Library* utilizada seja um arquivo Python, a pasta *__pycache__* é criada automaticamente.
