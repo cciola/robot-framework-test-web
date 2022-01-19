@@ -1,5 +1,5 @@
 ## Automação de testes com Robot Framework
-Projeto do curso de Robot Beginner, da QA Ninja.
+Projeto do curso de Robot Beginner com Selenium Webdriver, da QA Ninja.
 
 -----------------------------------------
 ### O que este script faz?
