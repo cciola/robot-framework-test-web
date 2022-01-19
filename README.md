@@ -349,13 +349,13 @@ Selecionando por Id
 	[tags]							radio_id
 	Go To							${url}/radios
 	Select Radio Button					movies		     cap
-	Radio BUtton Should Be Set To		movies		cap
+	Radio Button Should Be Set To		movies		cap
 
 Selecionando por Value
 	[tags]							radio_value
 	Go To							${url}/radios
 	Select Radio Button					movies		     guardians
-	Radio BUtton Should Be Set To		movies		guardians
+	Radio Button Should Be Set To		movies		guardians
 ```
 
 ## Menu de opções (combobox/select)
@@ -382,6 +382,8 @@ Selecionar opção por valor e validar pelo texto
 	${selected}=			    Get Selected List Label	    id:dropdown
 	Should Be Equal			    ${selected}			    Loki
 ```
+
+Ao utilizarmos alguma *keyword* que contenha `Get`, indica que podemos ter um retorno. É necessário utilizar `${nomeElemento}=` e em seguida o locator do elemento, para indicar de onde queremos obter algo para ser verificado.
 
 ## Validando registros em tabelas
 Crie o arquivo *tables.robot*. No Robot, para validar um valor de uma tabela, é necessário saber qual é o número da linha na qual o registro consta.
@@ -428,8 +430,50 @@ Descobre a linha pelo texto chave e valida os demais valores
 ```
 
 ## Preenchendo formulários
+Crie o arquivo *login_form.robot*, com o seguinte conteúdo:
+```
+*** Settings ***
+Resource	base.robot
+
+Test Setup	Nova sessão
+Test Teardown	Encerra sessão
+
+*** Test Cases ***
+Login com sucesso
+	Go To				    ${url}/login
+	Input Text			    css:input[name=username]		stark
+	Input Text			    css:input[name=password]		jarvis!
+	Click Element			    class:btn-login
+
+	Page Should Contain		    Olá, Tony Stark. Você acessou a área logada!
+```
 
 ## Validando notificações
+Incrementando o cenário anterior, vamos validar a mensagem quando a senha informada é inválida:
+```
+Senha inválida
+	[tags]				    login_error
+	Go To				    ${url}/login
+	Input Text			    css:input[name=username]		  stark
+	Input Text			    css:input[name=password]		  abc123
+	Click Element			    class:btn-login
+
+	${message}=			    Get Web Element			  id:flash
+	Should Contain			    ${message.text}			  Senha é invalida!
+```
+
+Aumentando o nível da validação, vamos verificar além da mensagem exibida, se está sendo exibida no elemento correto (`id:flash`):
+```
+Login com usuário inexistente
+	[tags]				    login_user404
+	Go To				    ${url}/login
+	Input Text			    css:input[name=username]		  carol
+	Input Text			    css:input[name=password]		  123
+	Click Element			    class:btn-login
+
+	${message}=			    Get Web Element			  id:flash
+	Should Contain			    ${message.text}		          O usuário informado não está cadastrado!
+```
 
 ## Page Objects com novas keywords
 
