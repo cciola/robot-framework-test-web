@@ -552,9 +552,6 @@ Shouls See Logged User
 	Page Should Contain		    Olá, ${full_name}. Você acessou a área logada!
 ```
 
-## Robot Framework ou Cypress? Por que não ambos?
-[Vídeo](https://www.youtube.com/watch?v=SUsSWP-g7o0) do QA Ninja week - 26/10/2021
-
 ## Dicas
 - O `pip` é o instalador e gerenciados de pacotes do Python, e já é instalado automaticamente com o Python.
 
