@@ -114,8 +114,7 @@ Não necessita de IDE. Possui uma sintaxe de escrita tabular fácil de ser utili
 
 Pode ser instalado e utilizado em qualquer sistema operacional.
 
-
-## A abordagem keyword-driven
+### A abordagem keyword-driven
 O Robot utiliza ***keywords*** (palavras-chave), que são uma representação da interação em alto nível (linguagem mais natural e humana) com o sistema. Elas espeitam espaços e tabulações para identificar o que é uma keyword e o que são argumentos.
 
 As *keywords* contém espaço simples entre si, e são reservadas da *library* utilizada. Geralmente estão escritas em Inglês. As sequências de *keywords* formam um caso ou cenário de teste.
@@ -300,7 +299,7 @@ Encerra sessão
 E depois, no início:
 ```
 Test Setup		Nova sessão
-Test Teardown	Encerra sessão
+Test Teardown		Encerra sessão
 ```
 
 Depois, basta eliminar dos testes as linhas correspondentes a abrir e fechar o navegador.
@@ -413,20 +412,20 @@ Verifica o valor ao informar o número da linha
 
 Descobre a linha pelo texto chave e valida os demais valores
 	Go To				   ${url}/tables
-	${target}=			   Get Web Element	xpath:.//tr[contains(., '@chadwickboseman')]
-	Should Contain			   ${target.text}	$ 700.000
-	Should Contain			   ${target.text}	Pantera Negra
+	${target}=			   Get Web Element		    xpath:.//tr[contains(., '@chadwickboseman')]
+	Should Contain			   ${target.text}		    $ 700.000
+	Should Contain			   ${target.text}		    Pantera Negra
 ```
 
 É possível imprimir os valores encontrados no relatório, utilizando a *keyword* `Log`, e também exibir os valores no console, utilizando `Log To Console`:
 ```
 Descobre a linha pelo texto chave e valida os demais valores
 	Go To				   ${url}/tables
-	${target}=			   Get Web Element	 xpath:.//tr[contains(., '@chadwickboseman')]
+	${target}=			   Get Web Element		    xpath:.//tr[contains(., '@chadwickboseman')]
 	Log				   ${target.text}
 	Log To Console			   ${target.text}
-	Should Contain			   ${target.text}	 $ 700.000
-	Should Contain			   ${target.text}	 Pantera Negra
+	Should Contain			   ${target.text}		    $ 700.000
+	Should Contain			   ${target.text}		    Pantera Negra
 ```
 
 ## Preenchendo formulários
