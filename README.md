@@ -1,12 +1,7 @@
 ## Automação de testes com Robot Framework
 Projeto do curso de Robot Beginner com Selenium Webdriver, da QA Ninja.
 
------------------------------------------
-### O que este script faz?
-Este script efetua alguns testes na página [Training Wheels](https://training-wheels-protocol.herokuapp.com/).
-
------------------------------------------
-### Instalação e uso da arquitetura
+## Instalação e uso da arquitetura
 Instale as ferramentas:
 
 - [Python3](https://www.python.org/downloads/ "Python"): faça o download do instalador. Na instalação:
@@ -19,24 +14,27 @@ Instale as ferramentas:
     - Python test suite
     - py launcher
     - for all users
-  - marque a opção "Install for all users", certifique-se de que o campo do path está desta forma: *C:\Python310*
+  - marque a opção "Install for all users", certifique-se de que o campo do path está desta forma: `C:\Python310`
   - as opções referentes a "Download debugging" **não** precisam ser marcadas
   - após a instalação, confira nas Variáveis de Ambiente (do sistema) se os diretórios do Python 3 foram criados no *Path*:
-    - *C:\Program Files\Python310\Scripts\\*
-    - *C:\Program Files\Python310\\*
+    - `C:\Program Files\Python310\Scripts\\`
+    - `C:\Program Files\Python310\\`
   - Caso não tenham sido criados, acesse a pasta de *Arquivos de Programas* do Windows, pasta Python, copie e adicione manualmente os caminhos destas duas pastas no *Path* da Variável de Ambiente de sistema.
   - Para verificar se o Python e o pip foram instalados com sucesso, digite no terminal `python --version && pip --version`.
 
-- **Robot Framework**: para instalar, digite no terminal: `pip install robotframework`
-  - Adicione manualmente no *Path* das Variáveis de Ambiente o caminho para a pasta do executável do Robot, exemplo: *C:\Users\carol\AppData\Roaming\Python\Python310\Scripts*.
+- **Robot Framework**: para instalar, digite no terminal
+```bash
+pip install robotframework`
+```
+  - Adicione manualmente no *Path* das Variáveis de Ambiente o caminho para a pasta do executável do Robot, exemplo: `C:\Users\carol\AppData\Roaming\Python\Python310\Scripts`.
 
 - **Selenium**: vamos instalar a library externa *SeleniumLibrary* para os [testes web com Python](https://selenium-python.readthedocs.io/getting-started.html):
-  ```
+  ```bash
   pip install --upgrade robotframework-seleniumlibrary
   ```
 
 - **Requests**: vamos instalar a library externa *Requests* para testes de API:
-  ```
+  ```bash
   pip install -U robotframework-requests
   ```
 
@@ -51,28 +49,28 @@ Instale as ferramentas:
 - Abra um terminal que aceite comandos git (exemplo: Powershell, git bash, cmder, etc.)
 - Baixe este repositório ou faça um `git clone` (HTTPS/SSH)
 
-- Para verificar se possui as versões instaladas, digite no terminal:
-```
+- Para verificar se possui as versões instaladas:
+```bash
 python --version &&  pip --version && robot --version
 ```
 
-- Para executar os testes em Python, digite no terminal:
-```
+- Para executar os testes em Python:
+```bash
 python nomeArquivo.py
 ```
 
-- Para executar os testes com o Robot, digite no terminal:
-```
+- Para executar os testes com o Robot:
+```bash
 robot -d ./log nomeArquivo.robot
 ```
 
-- Para executar os testes de um arquivo específico com o Robot, digite no terminal:
-```
+- Para executar os testes de um arquivo específico com o Robot:
+```bash
 robot -d ./log tests\nomeDoArquivo.robot
 ```
 
-- Para executar todos os testes com o Robot, digite no terminal:
-```
+- Para executar todos os testes com o Robot:
+```bash
 robot -d ./log tests\nomeDoArquivo.robot
 ```
 
