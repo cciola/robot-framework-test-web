@@ -1,4 +1,4 @@
-## Automação de testes com Robot Framework
+# Automação de testes com Robot Framework
 Projeto do curso de Robot Beginner com Selenium Webdriver, da QA Ninja.
 
 ## Instalação e uso da arquitetura
@@ -38,7 +38,7 @@ pip install robotframework`
   pip install -U robotframework-requests
   ```
 
-- **Webdrivers**: Baixe os drivers [Chromediver](https://sites.google.com/chromium.org/driver/downloads) e [Geckodriver](https://github.com/mozilla/geckodriver/releases), descompacte e salve os executáveis dentro da pasta *C:\Program Files\Python310\Scripts\\*, pois esta pasta já está mapeada nas variáveis de ambiente.
+- **Webdrivers**: Baixe os drivers [Chromediver](https://sites.google.com/chromium.org/driver/downloads) e [Geckodriver](https://github.com/mozilla/geckodriver/releases), descompacte e salve os executáveis dentro da pasta `C:\Program Files\Python310\Scripts\\`, pois esta pasta já está mapeada nas variáveis de ambiente.
 
 - [VSCode](https://code.visualstudio.com/ "VSCode"): o VSCode é um excelente editor de código e atualmente conta com o **melhor plugin de Robot Framework**. Faça o download, prossiga com os passos padrão na instalação. Vamos instalar as extensões, e **reiniciar o VSCode** para garantir a instalação:
   - *Python*, da Microsoft
@@ -75,7 +75,7 @@ robot -d ./log tests\nomeDoArquivo.robot
 ```
 
 -----------------------------------------
-### Arquitetura do projeto
+### Estrutura do projeto
 
 ```
 📂 robot-framework-test-web/
@@ -97,7 +97,7 @@ robot -d ./log tests\nomeDoArquivo.robot
 -----------------------------------------
 
 ## Introdução
-O Robot Framework é um framework open source para automação de testes, desenvolvido em Python. Possibilita automatizar testes web, desktop e mobile.
+O **Robot Framework** é um framework open source para automação de testes, desenvolvido em Python. Possibilita automatizar testes web, desktop e mobile.
 
 É estruturado para desenvolvimento dirigido a testes de aceitação (ATDD), que é uma abordagem para times ágeis de desenvolvimento, onde os requisitos são definidos e refinados pelo time (QA, Devs, PO), logo no início do projeto. Estes requisitos tornam-se executáveis posteriormente, com o ATDD. Mas o Robot pode ser utilizado mesmo que o time não seja ágil.
 
@@ -137,7 +137,8 @@ Apesar de já existirem diversas *libraries* disponíveis, nada impede o automat
 ---
 
 ## Dinâmica de funcionamento do Robot - exemplo com Library Python
-Vamos criar um arquivo de testes em Python, *app.py*, contendo:
+Vamos criar um arquivo de testes em Python, `app.py`, contendo:
+
 ```python
 def welcome(name):
     return "Olá " + name + ", bem vindo ao curso de Robot Framework!"
@@ -149,7 +150,8 @@ print(result)
 Para executar, digite no terminal `python app.py`.
 
 Para utilizar o Robot nesta aplicação, crie um novo arquivo `test.robot`:
-```
+
+```text
 *** Settings ***
 Library     app.py
 
@@ -158,19 +160,27 @@ Deve retornar mensagem de boas vindas
     Welcome       Carol
 ```
 
-O Robot não utiliza a linguagem Python para testar o script; as *keywords* são utilizadas para que o Robot importe o código do Python do arquivo *app.py* como palavra-chave.
+O Robot não utiliza a linguagem Python para testar o script; as *keywords* são utilizadas para que o Robot importe o código do Python do arquivo `app.py` como palavra-chave.
 
-Para executar no Robot, digite `robot test.robot`. O teste será executado, e além do status no prompt, serão gerados três arquivos:
+Para executar no Robot, digite o comando abaixo:
 
-- *output.xml*
-- *log.html*
-- *report.html*
+```bash
+robot test.robot
+```
+
+O teste será executado, e além do status no prompt, serão gerados três arquivos:
+
+```text
+- output.xml
+- log.html
+- report.html
+```
 
 Ao abrir o arquivo de report, teremos uma página web com o relatório do teste.
 
-Editando novamente o código para obter as informações do arquivo *app.py* por meio de *keywords*:
+Editando novamente o código para obter as informações do arquivo `app.py` por meio de *keywords*:
 
-```
+```text
 *** Settings ***
 Library     app.py
 
@@ -181,7 +191,8 @@ Deve retornar mensagem de boas vindas
 ```
 
 Crie o arquivo `title.robot`, contendo:
-```
+
+```text
 *** Settings ***
 Library		SeleniumLibrary
 
@@ -192,11 +203,17 @@ Should see page title
 	Title Should Be		Training Wheels Protocol
 	Close Browser
 ```
-Para gerar os logs dentro de uma pasta, deixando o projeto mais organizado, delete os três arquivos gerados após a execução, e execute o comando `robot -d ./log title.robot`.
+
+Para gerar os logs dentro de uma pasta, deixando o projeto mais organizado, delete os três arquivos gerados após a execução, e execute o comando:
+
+```bash
+robot -d ./log title.robot
+```
 
 ## Tags, variáveis e checkboxes
-Crie o arquivo *checkbox.robot* contendo o exemplo abaixo, que ilustra a utilização de tags:
-```
+Crie o arquivo `checkbox.robot` contendo o exemplo abaixo, que ilustra a utilização de tags:
+
+```text
 *** Settings ***
 Library		SeleniumLibrary
 
@@ -234,7 +251,7 @@ Marcando opção com XPath
 
 Vamos melhorar utilizando variáveis para armazenar o *locator* dos elementos:
 
-```
+```text
 *** Settings ***
 Library		SeleniumLibrary
 
@@ -273,10 +290,15 @@ Marcando opção com XPath
 	Close Browser
 ```
 
-Para executar todos os testes, digite `robot -d ./log title.robot`.
+Para executar todos os testes, digite:
 
-Para executar apenas o teste de uma tag específica, digite `-i nomeDaTag`:
+```bash
+robot -d ./log title.robot
 ```
+
+Para executar apenas o teste de uma tag específica, digite `-i nomeDaTag`, exemplo:
+
+```bash
 robot -d ./log -i ironman title.robot
 ```
 
@@ -284,7 +306,8 @@ robot -d ./log -i ironman title.robot
 São comportamentos implementados antes e após cada caso de teste, respectivamente.
 
 Vamos implementar novas *keywords* para abrir o navegador antes dos testes e acessar a página, e fechar o navegador depois dos testes. Declare ao final do script:
-```
+
+```text
 *** Keywords ***
 Nova sessão
 	Open Browser	   ${url}	 chrome
@@ -302,8 +325,9 @@ Test Teardown		Encerra sessão
 Depois, basta eliminar dos testes as linhas correspondentes a abrir e fechar o navegador.
 
 ## Resource
-Crie o arquivo *base.robot* na raiz do projeto, e acrescente nele tudo o que é genérico dentre os scripts de teste:
-```
+Crie o arquivo `base.robot` na raiz do projeto, e acrescente nele tudo o que é genérico dentre os scripts de teste:
+
+```text
 *** Settings ***
 Library		SeleniumLibrary
 
@@ -321,19 +345,25 @@ Encerra sessão
 No *Settings* dos scripts, troque a `Library SeleniumLibrary` por `Resource    base.robot`. Desta forma, estamos reaproveitando as *keywords*, as *libraries* e as variáveis.
 
 ## Pasta de testes
-Crie a pasta *tests* na nossa estrutura, e mover o arquivo *base.robot* junto com os scripts de teste para dentro dela. Ao executar os testes, vamos declarar `robot -d ./ log tests\` para executar todos os testes.
+Crie a pasta `tests` na nossa estrutura, e mover o arquivo *base.robot* junto com os scripts de teste para dentro dela. Vamos executar todos os testes com o comando:
+
+```bash
+robot -d ./ log tests\
+```
 
 ## Capturando screenshots
 Vamos complementar nosso *Teardown* com a *keyword* `Capture Page Screenshot`, antes do fechamento do navegador. Assim garantiremos um screenshot ao final do teste, evidenciando que passou.
-```
+
+```text
 Encerra sessão
 	Capture Page Screenshot
 	Close Browser
 ```
 
 ## Radio buttons
-Crie o arquivo *radiobutton.robot*, com o seguinte conteúdo:
-```
+Crie o arquivo `radiobutton.robot`, contendo:
+
+```text
 *** Settings ***
 Resource		base.robot
 
@@ -355,8 +385,9 @@ Selecionando por Value
 ```
 
 ## Menu de opções (combobox/select)
-Crie o arquivo *select.robot*, com o seguinte conteúdo:
-```
+Crie o arquivo `select.robot`, contendo:
+
+```text
 *** Settings ***
 Resource	    base.robot
 
@@ -382,20 +413,23 @@ Selecionar opção por valor e validar pelo texto
 Ao utilizarmos alguma *keyword* que contenha `Get`, indica que podemos ter um retorno. É necessário utilizar uma variável para informar o nome do elemento `${nomeElemento}=`, e em seguida indicar o *locator* do elemento, para indicar de onde queremos obter algo para ser verificado.
 
 ## Validando registros em tabelas
-Crie o arquivo *tables.robot*. No Robot, para validar um valor de uma tabela, é necessário saber qual é o número da linha na qual o registro consta.
+Crie o arquivo `tables.robot`. No Robot, para validar um valor de uma tabela, é necessário saber qual é o número da linha na qual o registro consta.
 
 É necessário primeiramente informar qual é a tabela, depois o número da linha, e finalmente o valor que será verificado:
-```
+
+```text
 Table Row Should Contain		    id:actors		1	$ 10.000,00
 ```
 
 Se o valor for único na linha, podemos informar o valor independentemente da coluna em que ele se encontra:
-```
+
+```text
 Table Row Should Contain		    id:actors		1	@robertdowneyjr
 ```
 
 Caso ocorra alguma mudança na tabela e a massa mude de linha, por exemplo, podemos efetuar um teste para descobrir a linha pelo texto chave, e validar os demais valores:
-```
+
+```text
 *** Settings ***
 Resource	base.robot
 
@@ -415,7 +449,8 @@ Descobre a linha pelo texto chave e valida os demais valores
 ```
 
 É possível imprimir os valores encontrados no relatório, utilizando a *keyword* `Log`, e também exibir os valores no console, utilizando `Log To Console`:
-```
+
+```text
 Descobre a linha pelo texto chave e valida os demais valores
 	Go To				   ${url}/tables
 	${target}=			   Get Web Element		    xpath:.//tr[contains(., '@chadwickboseman')]
@@ -426,8 +461,9 @@ Descobre a linha pelo texto chave e valida os demais valores
 ```
 
 ## Preenchendo formulários
-Crie o arquivo *login_form.robot*, com o seguinte conteúdo:
-```
+Crie o arquivo `login_form.robot`, contendo:
+
+```text
 *** Settings ***
 Resource	base.robot
 
@@ -446,7 +482,8 @@ Login com sucesso
 
 ## Validando notificações
 Incrementando o cenário anterior, vamos validar a mensagem quando a senha informada é inválida:
-```
+
+```text
 Senha inválida
 	[tags]				    login_error
 	Go To				    ${url}/login
@@ -459,7 +496,8 @@ Senha inválida
 ```
 
 Aumentando o nível da validação, vamos verificar além da mensagem exibida, se está sendo exibida no elemento correto (`id:flash`):
-```
+
+```text
 Login com usuário inexistente
 	[tags]				    login_user404
 	Go To				    ${url}/login
@@ -473,7 +511,8 @@ Login com usuário inexistente
 
 ## Page Objects com novas keywords
 Continuando no script anterior, vamos utilizar o recurso *custom keyword* para criar nossas próprias palavras-chave. A declaração é feita da seguinte forma:
-```
+
+```text
 *** Keywords ***
 Login With
 	[Arguments]			    ${usrname}				  ${pass}
@@ -484,7 +523,8 @@ Login With
 ```
 
 Altere o trecho onde as *keywords* `Input Text` e `Click Element` estavam declaradas, informando nossa nova *keyword* `Login With`, seguida dos valores:
-```
+
+```text
 *** Test Cases ***
 Login com sucesso
 	Go To				    ${url}/login
@@ -492,7 +532,8 @@ Login com sucesso
 ```
 
 Criaremos outra palavra-chave customizada para validar a mensagem de alerta:
-```
+
+```text
 Should Contain Login Alert
 	[Arguments]			    ${expected_message}
 	${message}=			    Get Web Element			  id:flash
@@ -504,7 +545,8 @@ Shouls See Logged User
 ```
 
 Nosso script ficará da seguinte forma:
-```
+
+```text
 *** Settings ***
 Resource	base.robot
 
@@ -550,8 +592,12 @@ Shouls See Logged User
 ```
 
 ## Dicas
-- O `pip` é o instalador e gerenciados de pacotes do Python, e já é instalado automaticamente com o Python.
+- O `pip` é o instalador e gerenciador de pacotes do Python, e já é instalado automaticamente com o Python.
 
-- Com o comando `pip freeze`, é possível listar todos os pacotes instalados. Caso seja necessário atualizar a versão dos pacotes do Robot, digite o comando `pip install --upgrade robotframework==3.2.2` (informe a versão desejada).
+- Com o comando `pip freeze`, é possível listar todos os pacotes instalados. Caso seja necessário atualizar a versão dos pacotes do Robot, digite o comando:
+  
+```bash
+pip install --upgrade robotframework==3.2.2` # (informe a versão desejada)
+```
 
-- Ao executar testes cuja *Library* utilizada seja um arquivo Python, a pasta *__pycache__* é criada automaticamente.
+- Ao executar testes cuja *Library* utilizada seja um arquivo Python, a pasta `__pycache__` é criada automaticamente.
